@@ -1,0 +1,3341 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>スマートFIREタイプ診断｜あおいのスマートFIRE</title>
+  <meta name="description" content="8つの回答を重ね、今の関心を別の角度から整理するスマートFIRE自己理解レポートです。">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23fbfaf7'/%3E%3Cpath d='M8 20c5-8 11-8 16-1' fill='none' stroke='%2334465f' stroke-width='3' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='13' r='4' fill='%23a58b57'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #fbfaf7;
+      --bg-soft: #f5f1ea;
+      --text: #202733;
+      --muted: #616b78;
+      --line: #e4ded3;
+      --line-strong: #d3c9b6;
+      --navy: #34465f;
+      --navy-deep: #24344a;
+      --brass: #a58b57;
+      --brass-deep: #8a713f;
+      --brass-soft: rgba(165, 139, 87, 0.12);
+      --card: rgba(255, 255, 255, 0.66);
+      --shadow: 0 16px 44px rgba(36, 52, 74, 0.045);
+      --radius: 5px;
+      --serif: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "YuGothic", "Meiryo", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
+      background-attachment: fixed;
+      font-family: var(--sans);
+      line-height: 2;
+      letter-spacing: 0.02em;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    button { font: inherit; cursor: pointer; }
+
+    button:focus-visible {
+      outline: 2px solid var(--brass);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(100%, 640px);
+      margin: 0 auto;
+      padding: 24px 22px 64px;
+    }
+
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 8px 0 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .site-header .brand {
+      color: var(--navy);
+      font-family: var(--serif);
+      font-size: 0.95rem;
+      letter-spacing: 0.12em;
+    }
+
+    .site-header .brand-en {
+      color: var(--brass);
+      font-size: 0.68rem;
+      letter-spacing: 0.28em;
+    }
+
+    .eyebrow {
+      display: block;
+      margin-bottom: 16px;
+      color: var(--brass);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.36em;
+      text-indent: 0.36em;
+    }
+
+    /* ---------- intro ---------- */
+    .intro { padding: 74px 0 44px; text-align: center; }
+
+    .intro .eyebrow { margin-bottom: 22px; }
+
+    .intro h1 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 6.5vw, 2.5rem);
+      font-weight: 600;
+      line-height: 1.7;
+      letter-spacing: 0.08em;
+      color: var(--navy-deep);
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+      line-break: strict;
+    }
+
+    .intro-rule {
+      width: 40px;
+      height: 1px;
+      margin: 30px auto 0;
+      background: var(--brass);
+      opacity: 0.65;
+    }
+
+    .intro .catch {
+      margin: 30px 0 0;
+      font-family: var(--serif);
+      font-size: clamp(1.04rem, 4.2vw, 1.22rem);
+      line-height: 2.15;
+      color: var(--text);
+      letter-spacing: 0.05em;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+      line-break: strict;
+    }
+
+    .intro .sub {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 2;
+      letter-spacing: 0.04em;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+      line-break: strict;
+    }
+
+    .assure {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
+      margin: 32px 0 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+    }
+
+    .assure li { display: inline-flex; align-items: center; }
+
+    .assure li:not(:first-child)::before {
+      content: "／";
+      margin: 0 0.7em;
+      color: var(--brass);
+      opacity: 0.7;
+    }
+
+    .intro .greeting {
+      margin: 30px 0 0;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .start-area { margin: 42px 0 0; }
+
+    /* ---------- buttons ---------- */
+    .btn-primary,
+    .btn-secondary {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      min-height: 58px;
+      padding: 15px 24px;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      line-height: 1.5;
+      transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+    }
+
+    .btn-primary {
+      color: #fbfaf7;
+      background: var(--navy-deep);
+      border-color: var(--navy-deep);
+    }
+
+    .btn-primary:hover { background: #1b2839; border-color: #1b2839; }
+
+    .start-area .btn-primary {
+      width: min(100%, 340px);
+      box-shadow: 0 10px 30px rgba(36, 52, 74, 0.12);
+    }
+
+    .btn-secondary {
+      color: var(--navy);
+      background: transparent;
+      border-color: var(--line-strong);
+    }
+
+    .btn-secondary:hover { border-color: var(--brass); color: var(--brass-deep); }
+
+    .btn-ghost {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 8px 4px;
+      border: none;
+      background: none;
+      color: var(--muted);
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .btn-ghost:hover { color: var(--navy); }
+
+    /* ---------- quiz ---------- */
+    .quiz { padding: 52px 0 24px; }
+
+    .progress-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 12px;
+    }
+
+    .progress-count {
+      color: var(--navy);
+      font-family: var(--serif);
+      font-size: 1rem;
+      letter-spacing: 0.14em;
+    }
+
+    .progress-track {
+      height: 3px;
+      border-radius: 999px;
+      background: var(--line);
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      display: block;
+      height: 100%;
+      background: var(--brass);
+      transition: width 0.3s ease;
+    }
+
+    .q-card {
+      margin-top: 40px;
+      animation: fadeIn 0.32s ease both;
+    }
+
+    .q-text {
+      margin: 0 0 8px;
+      font-family: var(--serif);
+      font-size: clamp(1.14rem, 4.7vw, 1.38rem);
+      font-weight: 600;
+      line-height: 1.95;
+      letter-spacing: 0.04em;
+      color: var(--navy-deep);
+    }
+
+    .q-hint {
+      margin: 0 0 26px;
+      color: var(--muted);
+      font-size: 0.84rem;
+      letter-spacing: 0.06em;
+    }
+
+    .q-options {
+      display: grid;
+      gap: 12px;
+    }
+
+    .q-option {
+      display: block;
+      width: 100%;
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--card);
+      color: var(--text);
+      font-size: 0.98rem;
+      line-height: 1.8;
+      text-align: left;
+      transition: border-color 0.18s ease, background-color 0.18s ease;
+    }
+
+    .q-option:hover { border-color: var(--brass); background: rgba(255, 255, 255, 0.85); }
+
+    .q-option.is-selected {
+      border-color: var(--brass);
+      background: var(--brass-soft);
+      box-shadow: inset 3px 0 0 var(--brass);
+    }
+
+    .quiz-nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 32px;
+    }
+
+    /* ---------- result ---------- */
+    .result { padding: 44px 0 10px; }
+
+    .result > .eyebrow { text-align: center; }
+
+    .result-hero {
+      padding: 46px 26px 42px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5));
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .type-icon {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 72px;
+      height: 72px;
+      margin-bottom: 22px;
+      border: 1px solid var(--brass);
+      border-radius: 50%;
+      background: transparent;
+      color: var(--brass);
+    }
+
+    .type-icon svg { width: 38px; height: 38px; }
+
+    .type-name {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(1.64rem, 6.8vw, 2.2rem);
+      font-weight: 600;
+      line-height: 1.5;
+      letter-spacing: 0.06em;
+      color: var(--navy-deep);
+    }
+
+    .type-name:focus { outline: none; }
+
+    .type-name .title-segment {
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    .type-oneliner {
+      margin: 18px auto 0;
+      max-width: 30em;
+      color: var(--text);
+      font-size: 0.98rem;
+      line-height: 2.05;
+    }
+
+    #golden-introduction { text-align: left; }
+
+    .type-summary {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(1.06rem, 4.3vw, 1.18rem);
+      line-height: 2.35;
+      letter-spacing: 0.045em;
+      color: var(--navy-deep);
+    }
+
+    .report-kicker {
+      margin: 0 0 12px;
+      color: var(--brass-deep);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+    }
+
+    .summary-label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+    }
+
+    .summary-grid {
+      display: grid;
+      gap: 12px;
+      margin-top: 28px;
+      text-align: left;
+    }
+
+    .summary-item {
+      padding: 18px 18px 16px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.55);
+    }
+
+    .summary-value {
+      display: block;
+      color: var(--navy-deep);
+      font-family: var(--serif);
+      font-size: 1.02rem;
+      font-weight: 600;
+      line-height: 1.7;
+    }
+
+    .load-description {
+      margin: 18px auto 0;
+      max-width: 36em;
+      color: var(--text);
+      font-size: 0.92rem;
+      line-height: 1.9;
+      text-align: left;
+    }
+
+    .reason-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: reason;
+    }
+
+    .reason-item {
+      position: relative;
+      padding: 20px 20px 20px 58px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.48);
+      counter-increment: reason;
+    }
+
+    .reason-item::before {
+      content: counter(reason, decimal-leading-zero);
+      position: absolute;
+      left: 18px;
+      top: 20px;
+      color: var(--brass);
+      font-family: var(--serif);
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+    }
+
+    .reason-item p { margin: 0; }
+
+    .snapshot-grid {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+    }
+
+    .snapshot-item {
+      display: grid;
+      gap: 6px;
+      padding: 16px 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .snapshot-item:last-child { border-bottom: 1px solid var(--line); }
+
+    .snapshot-heading {
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+    }
+
+    .snapshot-answer {
+      color: var(--navy-deep);
+      font-family: var(--serif);
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+
+    .golden-report { margin-top: 8px; }
+
+    .answer-summary-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin: 20px 0 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: answer;
+    }
+
+    .answer-summary-list li {
+      position: relative;
+      padding: 15px 16px 15px 48px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.55);
+      color: var(--navy-deep);
+      line-height: 1.8;
+      counter-increment: answer;
+    }
+
+    .answer-summary-list li::before {
+      content: counter(answer, decimal-leading-zero);
+      position: absolute;
+      top: 15px;
+      left: 16px;
+      color: var(--brass-deep);
+      font-family: var(--serif);
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+    }
+
+    .answer-question {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--muted);
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+
+    .answer-choice {
+      display: block;
+      color: var(--navy-deep);
+      font-family: var(--serif);
+      font-size: 0.98rem;
+    }
+
+    .report-question {
+      margin: 0 0 18px;
+      padding: 17px 18px;
+      border-left: 3px solid var(--brass);
+      background: var(--brass-soft);
+      color: var(--navy-deep);
+      font-family: var(--serif);
+      font-size: 1.02rem;
+      line-height: 1.95;
+    }
+
+    .example-label {
+      margin: 24px 0 14px !important;
+      color: var(--brass-deep);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .reflection-label {
+      margin: 24px 0 8px !important;
+      color: var(--brass-deep);
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .report-conclusion {
+      padding: 30px 26px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(18, 42, 61, 0.97), rgba(28, 55, 72, 0.94));
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .report-conclusion .eyebrow { color: #d8c28f; }
+
+    .report-conclusion h3 {
+      margin: 0 0 20px;
+      font-family: var(--serif);
+      font-size: clamp(1.3rem, 5vw, 1.72rem);
+      font-weight: 600;
+      line-height: 1.65;
+      letter-spacing: 0.05em;
+    }
+
+    .report-conclusion p {
+      margin: 0 0 10px;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 2;
+    }
+
+    .report-conclusion p:last-child { margin-bottom: 0; }
+
+    .report-check-list {
+      display: grid;
+      gap: 12px;
+      margin: 22px 0;
+    }
+
+    .report-check-card {
+      padding: 18px 17px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .report-check-card h4 {
+      margin: 0 0 10px;
+      color: #e7d39f;
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.65;
+    }
+
+    .report-check-card p { margin-bottom: 8px; }
+    .report-check-card p:last-child { margin-bottom: 0; }
+
+    .report-check-label {
+      color: #e7d39f;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .limit-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .limit-item {
+      padding: 15px 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.55);
+    }
+
+    .limit-label {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--muted);
+      font-size: 0.73rem;
+      letter-spacing: 0.09em;
+    }
+
+    .limit-value {
+      color: var(--navy-deep);
+      font-family: var(--serif);
+      font-size: 0.94rem;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    .detail-section {
+      padding: 30px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .report-bridge {
+      margin: 22px 0 8px;
+      padding: 20px 20px 8px;
+      border-left: 3px solid var(--brass);
+      background: var(--brass-soft);
+    }
+
+    .report-bridge p { margin: 0 0 12px; }
+
+    .detail-section:last-child { border-bottom: none; }
+
+    .detail-section h3 {
+      margin: 0 0 16px;
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 600;
+      line-height: 1.7;
+      letter-spacing: 0.04em;
+      color: var(--navy-deep);
+    }
+
+    .detail-section p { margin: 0 0 12px; }
+    .detail-section p:last-child { margin-bottom: 0; }
+
+    .type-oneliner p,
+    .report-bridge p,
+    .detail-section h3,
+    .detail-section p,
+    .report-conclusion h3,
+    .report-conclusion h4,
+    .report-conclusion p,
+    .answer-question,
+    .answer-choice,
+    .bonus-item h4,
+    .bonus-item p,
+    .result-actions .btn-secondary {
+      line-break: strict;
+      overflow-wrap: break-word;
+      text-wrap: pretty;
+      word-break: auto-phrase;
+    }
+
+    .report-list,
+    .reflection-list {
+      display: grid;
+      gap: 10px;
+      margin: 18px 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .report-list li,
+    .reflection-list li {
+      position: relative;
+      padding: 14px 16px 14px 42px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.5);
+      line-height: 1.85;
+    }
+
+    .report-list li::before {
+      content: "—";
+      position: absolute;
+      left: 17px;
+      color: var(--brass-deep);
+    }
+
+    .reflection-list { counter-reset: reflection; }
+
+    .reflection-list li {
+      padding-left: 52px;
+      counter-increment: reflection;
+    }
+
+    .reflection-list li::before {
+      content: counter(reflection, decimal-leading-zero);
+      position: absolute;
+      left: 16px;
+      top: 14px;
+      color: var(--brass-deep);
+      font-family: var(--serif);
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+    }
+
+    .report-note {
+      margin-top: 18px !important;
+      color: var(--muted) !important;
+      font-size: 0.92rem;
+    }
+
+    .not-now-list {
+      display: grid;
+      gap: 10px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .not-now-list li {
+      position: relative;
+      padding: 12px 14px 12px 38px;
+      border: 1px solid rgba(165, 139, 87, 0.24);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.52);
+    }
+
+    .not-now-list li::before {
+      content: "—";
+      position: absolute;
+      left: 15px;
+      color: var(--brass);
+    }
+
+    .action-intro {
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .action-card {
+      margin-top: 16px;
+      padding: 24px 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.58);
+      break-inside: avoid;
+    }
+
+    .action-card.is-primary { border-top: 3px solid var(--brass); }
+
+    .action-card-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: baseline;
+      margin-bottom: 14px;
+    }
+
+    .action-card h4 {
+      margin: 0;
+      color: var(--navy-deep);
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .action-time {
+      flex: none;
+      color: var(--brass-deep);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .action-card p { margin: 0 0 12px; }
+
+    .plan-steps {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: plan-step;
+    }
+
+    .plan-steps li {
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 12px;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .plan-steps li:last-child { border-bottom: none; }
+    .step-time { color: var(--brass-deep); font-size: 0.8rem; font-weight: 700; }
+
+    .completion-box,
+    .fallback-box {
+      margin-top: 16px;
+      padding: 14px 16px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+
+    .completion-box { background: rgba(18, 42, 61, 0.07); }
+    .fallback-box { border: 1px dashed var(--line-strong); color: var(--muted); }
+    .completion-box strong,
+    .fallback-box strong { color: var(--navy-deep); }
+
+    .month-timeline {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .month-step {
+      display: grid;
+      grid-template-columns: 62px 1fr;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .month-step:last-child { border-bottom: none; }
+    .month-step-tag { color: var(--brass-deep); font-family: var(--serif); font-size: 0.86rem; }
+    .month-step h5 { margin: 0 0 5px; color: var(--navy-deep); font-size: 0.96rem; }
+    .month-step p { margin: 0; font-size: 0.92rem; }
+
+    .bonus-separator {
+      margin-top: 64px;
+      padding-top: 54px;
+      border-top: 4px double var(--line-strong);
+    }
+
+    .r-section {
+      margin-top: 56px;
+    }
+
+    .r-section h3 {
+      margin: 0 0 16px;
+      padding-top: 14px;
+      font-family: var(--serif);
+      font-size: 1.18rem;
+      font-weight: 600;
+      line-height: 1.7;
+      letter-spacing: 0.05em;
+      color: var(--navy-deep);
+    }
+
+    .r-section h3::before {
+      content: "";
+      display: block;
+      width: 26px;
+      height: 1px;
+      margin-bottom: 14px;
+      background: var(--brass);
+      opacity: 0.75;
+    }
+
+    .r-section .eyebrow + h3 { padding-top: 0; }
+    .r-section .eyebrow + h3::before { content: none; }
+    .dont-box h3::before { content: none; }
+
+    .r-section p {
+      margin: 0 0 12px;
+      color: var(--text);
+    }
+
+    .r-section p:last-child { margin-bottom: 0; }
+
+    /* axes */
+    .axis-row { margin-bottom: 28px; }
+    .axis-row:last-child { margin-bottom: 0; }
+
+    .axis-labels {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 9px;
+      color: var(--muted);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+    }
+
+    .axis-labels .is-strong { color: var(--brass-deep); font-weight: 600; }
+
+    .axis-track {
+      position: relative;
+      height: 1px;
+      border-radius: 0;
+      background: var(--line-strong);
+    }
+
+    .axis-track::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: -5px;
+      width: 1px;
+      height: 11px;
+      background: var(--muted);
+      opacity: 0.4;
+    }
+
+    .axis-dot {
+      position: absolute;
+      top: 50%;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: var(--brass);
+      border: 3px solid var(--bg);
+      box-shadow: 0 0 0 1px var(--brass);
+      transform: translate(-50%, -50%);
+      transition: left 0.5s ease;
+    }
+
+    /* dont box */
+    .dont-box {
+      padding: 26px 24px;
+      border: 1px solid var(--line);
+      border-left: 2px solid var(--brass);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      background: rgba(165, 139, 87, 0.05);
+    }
+
+    .dont-box h3 { margin-bottom: 12px; padding-top: 0; }
+
+    /* lists */
+    .step-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .step-list li {
+      position: relative;
+      padding: 12px 0 12px 30px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .step-list li:last-child { border-bottom: none; }
+
+    .step-list li::before {
+      content: "";
+      position: absolute;
+      left: 6px;
+      top: 1.55em;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--brass);
+    }
+
+    .month-list { counter-reset: week; }
+
+    .month-list li::before {
+      content: none;
+    }
+
+    .month-list li {
+      padding-left: 0;
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 12px;
+      align-items: baseline;
+    }
+
+    .month-list .week-tag {
+      color: var(--brass);
+      font-family: var(--serif);
+      font-size: 0.88rem;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+
+    .month-note {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    /* message */
+    .last-word {
+      margin-top: 56px;
+      padding: 40px 8px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .last-word .eyebrow { text-align: center; margin-bottom: 20px; }
+
+    .last-word p {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 0.94rem;
+      line-height: 2.2;
+      letter-spacing: 0.04em;
+      color: var(--navy-deep);
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+      line-break: strict;
+    }
+
+    .diagnosis-complete {
+      margin-top: 30px;
+      padding: 24px 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.5);
+      text-align: center;
+    }
+
+    .diagnosis-complete .eyebrow {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .diagnosis-complete p {
+      margin: 0;
+      font-family: var(--serif);
+      color: var(--navy-deep);
+      font-size: 1.04rem;
+      font-weight: 700;
+    }
+
+    .diagnosis-complete small {
+      display: block;
+      margin-top: 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.8;
+    }
+
+    .result-actions {
+      display: grid;
+      gap: 12px;
+      margin-top: 44px;
+    }
+
+    .result-actions .btn-secondary {
+      padding-right: 10px;
+      padding-left: 10px;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+
+    .copy-feedback {
+      min-height: 24px;
+      margin: 0;
+      color: var(--brass);
+      font-size: 0.85rem;
+      text-align: center;
+      letter-spacing: 0.06em;
+    }
+
+    /* CTA */
+    .cta-box {
+      margin-top: 22px;
+      padding: 32px 26px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.45));
+      box-shadow: var(--shadow);
+    }
+
+    .cta-box p { margin: 0 0 14px; }
+    .cta-box p:last-child { margin-bottom: 0; }
+
+    .cta-box h3 {
+      margin: 0 0 12px;
+    }
+
+    .bonus-list {
+      display: grid;
+      gap: 12px;
+      margin: 24px 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .bonus-item {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.62);
+    }
+
+    .bonus-number {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--navy-deep);
+      color: #fff;
+      font-family: var(--serif);
+      font-size: 0.86rem;
+      letter-spacing: 0.04em;
+    }
+
+    .bonus-item h4 {
+      margin: 0 0 6px;
+      color: var(--navy-deep);
+      font-family: var(--serif);
+      font-size: 1rem;
+      line-height: 1.7;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+      line-break: strict;
+    }
+
+    .bonus-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+
+    .delivery-note {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .bonus-foundation-note {
+      margin-top: 26px;
+    }
+
+    .bonus-followup {
+      margin-top: 26px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .bonus-followup h4 {
+      margin: 0 0 14px;
+      color: var(--navy-deep);
+      font-family: var(--serif);
+      font-size: 1.18rem;
+      line-height: 1.7;
+      letter-spacing: 0.02em;
+    }
+
+    .bonus-followup p {
+      margin-bottom: 14px;
+    }
+
+    .bonus-followup p:last-child {
+      margin-bottom: 0;
+    }
+
+    .bonus-followup-title {
+      white-space: nowrap;
+    }
+
+    .site-footer {
+      margin-top: 56px;
+      padding: 28px 0 10px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.76rem;
+      text-align: center;
+      letter-spacing: 0.14em;
+    }
+
+    .is-hidden { display: none; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in { animation: fadeIn 0.36s ease both; }
+
+    @media (max-width: 479px) {
+      .page { padding: 20px 20px 56px; }
+      .site-header .brand-en { font-size: 0.62rem; letter-spacing: 0.2em; }
+      .result { padding-top: 36px; }
+      .result-hero { padding-right: 20px; padding-left: 20px; }
+      .type-name { font-size: 1.45rem; letter-spacing: 0.025em; }
+      .result > .r-section,
+      #result-body,
+      .last-word,
+      .diagnosis-complete,
+      .result-actions {
+        margin-right: 4px;
+        margin-left: 4px;
+      }
+      .cta-box { padding: 26px 18px; }
+      .bonus-item {
+        grid-template-columns: 34px minmax(0, 1fr);
+        gap: 12px;
+        padding: 16px 14px;
+      }
+      .bonus-number { width: 34px; height: 34px; }
+      .limit-grid { grid-template-columns: 1fr; }
+      .action-card-head { display: block; }
+      .action-time { display: block; margin-top: 6px; }
+    }
+
+    @media (min-width: 640px) {
+      .page { padding: 32px 32px 72px; }
+      .intro { padding: 92px 0 52px; }
+      .result-hero { padding: 56px 40px 48px; }
+      .result-actions { grid-template-columns: repeat(2, 1fr); }
+      .result-actions .copy-feedback { grid-column: 1 / -1; }
+      .summary-grid { grid-template-columns: 1fr 1fr; }
+      .answer-summary-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .snapshot-grid { grid-template-columns: 1fr 1fr; }
+      .snapshot-item:last-child { grid-column: 1 / -1; }
+      .last-word { padding: 44px 22px; }
+      .last-word p { font-size: 1.08rem; }
+    }
+
+    @media print {
+      @page { size: A4; margin: 14mm 13mm 16mm; }
+      body { background: #fff; }
+      .page { width: auto; max-width: none; padding: 0; }
+      .site-header,
+      .result-actions,
+      .bonus-separator,
+      .site-footer { display: none !important; }
+      .result { padding: 0; }
+      .result-hero,
+      .report-conclusion,
+      .action-card,
+      .dont-box,
+      .diagnosis-complete { box-shadow: none; break-inside: avoid; }
+      .report-conclusion {
+        background: #fff;
+        color: var(--navy-deep);
+        border: 2px solid var(--navy-deep);
+      }
+      .report-conclusion .eyebrow { color: var(--brass-deep); }
+      .report-conclusion p { color: var(--text); }
+      .report-check-card {
+        border-color: var(--line);
+        background: #fff;
+      }
+      .report-check-card h4,
+      .report-check-label { color: var(--brass-deep); }
+      .r-section,
+      .detail-section,
+      .last-word { break-inside: avoid; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <span class="brand">あおいのスマートFIRE</span>
+      <span class="brand-en">SMART FIRE</span>
+    </header>
+
+    <main>
+
+      <section class="intro" id="screen-intro" aria-labelledby="intro-title">
+        <span class="eyebrow">DIAGNOSIS</span>
+        <h1 id="intro-title"></h1>
+        <div class="intro-rule" aria-hidden="true"></div>
+        <p class="catch" id="intro-catch"></p>
+        <p class="sub" id="intro-sub"></p>
+        <ul class="assure" id="intro-assure"></ul>
+        <p class="greeting" id="intro-greeting"></p>
+        <div class="start-area">
+          <button class="btn-primary" type="button" id="start-button"></button>
+        </div>
+      </section>
+
+      <section class="quiz is-hidden" id="screen-quiz" aria-live="polite">
+        <div class="progress-head">
+          <span class="eyebrow" style="margin-bottom:0;">QUESTION</span>
+          <span class="progress-count" id="progress-count"></span>
+        </div>
+        <div class="progress-track"><span class="progress-fill" id="progress-fill" style="width:0%"></span></div>
+        <div class="q-card" id="q-card"></div>
+        <div class="quiz-nav">
+          <button class="btn-ghost" type="button" id="back-button">← ひとつ前に戻る</button>
+          <button class="btn-ghost" type="button" id="restart-button">最初からやり直す</button>
+        </div>
+      </section>
+
+      <section class="result is-hidden" id="screen-result">
+        <div class="is-hidden" id="golden-result-shell">
+          <span class="eyebrow">YOUR REPORT</span>
+          <div class="result-hero">
+            <p class="report-kicker">SMART FIRE SELF-UNDERSTANDING REPORT</p>
+            <h2 class="type-name" id="golden-title" tabindex="-1"></h2>
+            <div class="type-oneliner" id="golden-introduction"></div>
+          </div>
+          <div class="golden-report" id="golden-report"></div>
+          <div class="diagnosis-complete" role="note">
+            <small id="result-disclaimer"></small>
+          </div>
+        </div>
+
+        <div class="result-actions">
+          <button class="btn-secondary" type="button" id="copy-button">結果をコピーする</button>
+          <button class="btn-secondary" type="button" id="retry-button">もう一度診断する</button>
+          <p class="copy-feedback" id="copy-feedback" aria-live="polite"></p>
+        </div>
+
+        <div class="r-section bonus-separator is-hidden" id="bonus-section">
+          <span class="eyebrow">READER BONUS</span>
+          <div class="cta-box" id="cta-box"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">© あおいのスマートFIRE</footer>
+  </div>
+
+  <script>
+"use strict";
+
+const __production_module_1 = (() => {
+const OPTION_IDS = Object.freeze(["a", "b", "c", "d"]);
+
+const UNIVERSAL_REGISTRY_SCHEMA_VERSION = 1;
+
+const FAMILY_ORDER = Object.freeze({
+  F01: Object.freeze({ qualityPriority: 10, displayRank: 10 }),
+  F02: Object.freeze({ qualityPriority: 70, displayRank: 20 }),
+  F03: Object.freeze({ qualityPriority: 30, displayRank: 30 }),
+  F04: Object.freeze({ qualityPriority: 50, displayRank: 40 }),
+  F05: Object.freeze({ qualityPriority: 80, displayRank: 70 }),
+  F06: Object.freeze({ qualityPriority: 40, displayRank: 60 }),
+  F07: Object.freeze({ qualityPriority: 60, displayRank: 55 }),
+  F08: Object.freeze({ qualityPriority: 90, displayRank: 85 })
+});
+
+function candidate({ candidateId, familyId, requiredAnswerIds, relationTag, centerInsight }) {
+  return Object.freeze({
+    candidateId,
+    familyId,
+    requiredAnswerIds: Object.freeze(requiredAnswerIds),
+    forbiddenAnswerIds: Object.freeze([]),
+    relationTag,
+    centerInsight,
+    mutexIds: Object.freeze([]),
+    overlapGroups: Object.freeze([]),
+    qualityPriority: FAMILY_ORDER[familyId].qualityPriority,
+    displayRank: FAMILY_ORDER[familyId].displayRank,
+    scope: "universal_family_exact_option_skeleton",
+    auditStatus: "human_approved_skeleton_2026-08-24"
+  });
+}
+
+const F03_INSIGHT = Object.freeze({
+  a: "INS_COMPOUND_ELEMENTS",
+  b: "INS_TERM_REFERENT",
+  c: "INS_TERM_REFERENT",
+  d: "INS_COMPOUND_ELEMENTS"
+});
+
+const F05_INSIGHT = Object.freeze({
+  a: "INS_CONDITION_RANGE",
+  b: "INS_CONDITION_RANGE",
+  c: "INS_COMPOUND_ELEMENTS",
+  d: "INS_CONDITION_RANGE"
+});
+
+const F07_INSIGHT = Object.freeze({
+  a: "INS_COMPOUND_ELEMENTS",
+  b: "INS_CONDITION_RANGE",
+  c: "INS_CONDITION_RANGE",
+  d: "INS_CONDITION_RANGE"
+});
+
+const F08_INSIGHT = Object.freeze({
+  a: "INS_COMPOUND_ELEMENTS",
+  b: "INS_COMPOUND_ELEMENTS",
+  c: "INS_TERM_REFERENT",
+  d: "INS_COMPOUND_ELEMENTS"
+});
+
+const UNIVERSAL_CANDIDATES = Object.freeze([
+  ...OPTION_IDS.flatMap((q1) => OPTION_IDS.map((q8) => candidate({
+    candidateId: `CAN-F01-Q1${q1}Q8${q8}`,
+    familyId: "F01",
+    requiredAnswerIds: [`Q1${q1}`, `Q8${q8}`],
+    relationTag: "REL_TIME_AXIS",
+    centerInsight: "INS_CURRENT_FUTURE"
+  }))),
+  ...OPTION_IDS.map((q8) => candidate({
+    candidateId: `CAN-F02-Q8${q8}`,
+    familyId: "F02",
+    requiredAnswerIds: [`Q8${q8}`],
+    relationTag: "REL_SINGLE_AMBIGUITY",
+    centerInsight: "INS_DESIRED_CRITERIA"
+  })),
+  ...OPTION_IDS.map((q3) => candidate({
+    candidateId: `CAN-F03-Q3${q3}`,
+    familyId: "F03",
+    requiredAnswerIds: [`Q3${q3}`],
+    relationTag: "REL_SINGLE_AMBIGUITY",
+    centerInsight: F03_INSIGHT[q3]
+  })),
+  ...OPTION_IDS.map((q2) => candidate({
+    candidateId: `CAN-F04-Q2${q2}`,
+    familyId: "F04",
+    requiredAnswerIds: [`Q2${q2}`],
+    relationTag: "REL_SINGLE_AMBIGUITY",
+    centerInsight: "INS_TIME_FREQUENCY"
+  })),
+  ...OPTION_IDS.map((q4) => candidate({
+    candidateId: `CAN-F05-Q4${q4}`,
+    familyId: "F05",
+    requiredAnswerIds: [`Q4${q4}`],
+    relationTag: "REL_SINGLE_AMBIGUITY",
+    centerInsight: F05_INSIGHT[q4]
+  })),
+  ...OPTION_IDS.map((q5) => candidate({
+    candidateId: `CAN-F06-Q5${q5}`,
+    familyId: "F06",
+    requiredAnswerIds: [`Q5${q5}`],
+    relationTag: "REL_SINGLE_AMBIGUITY",
+    centerInsight: "INS_COMPOUND_ELEMENTS"
+  })),
+  ...OPTION_IDS.map((q6) => candidate({
+    candidateId: `CAN-F07-Q6${q6}`,
+    familyId: "F07",
+    requiredAnswerIds: [`Q6${q6}`],
+    relationTag: "REL_SINGLE_AMBIGUITY",
+    centerInsight: F07_INSIGHT[q6]
+  })),
+  ...OPTION_IDS.map((q7) => candidate({
+    candidateId: `CAN-F08-Q7${q7}`,
+    familyId: "F08",
+    requiredAnswerIds: [`Q7${q7}`],
+    relationTag: "REL_SINGLE_AMBIGUITY",
+    centerInsight: F08_INSIGHT[q7]
+  }))
+]);
+
+if (UNIVERSAL_CANDIDATES.length !== 44) {
+  throw new Error(`UNIVERSAL_CANDIDATE_COUNT_MISMATCH:${UNIVERSAL_CANDIDATES.length}`);
+}
+
+if (new Set(UNIVERSAL_CANDIDATES.map(({ candidateId }) => candidateId)).size !== 44) {
+  throw new Error("UNIVERSAL_CANDIDATE_ID_DUPLICATE");
+}
+
+const GAP_F18_ANSWER_PAIRS = Object.freeze([
+  Object.freeze(["Q1a", "Q3a"]),
+  Object.freeze(["Q1a", "Q3d"]),
+  Object.freeze(["Q1b", "Q3a"]),
+  Object.freeze(["Q1b", "Q3d"]),
+  Object.freeze(["Q1c", "Q3a"]),
+  Object.freeze(["Q1c", "Q3d"]),
+  Object.freeze(["Q1d", "Q3a"]),
+  Object.freeze(["Q1d", "Q3d"])
+]);
+
+const GAP_F13_ANSWER_PAIRS = Object.freeze(
+  OPTION_IDS.map((q8) => Object.freeze([`Q8${q8}`, "Q6a"]))
+);
+
+const GAP_CLOSURE_CANDIDATES = Object.freeze([
+  ...GAP_F18_ANSWER_PAIRS.map(([q1, q3]) => Object.freeze({
+    candidateId: `CAN-F18-${q1}${q3}`,
+    familyId: "F18",
+    requiredAnswerIds: Object.freeze([q1, q3]),
+    forbiddenAnswerIds: Object.freeze([]),
+    relationTag: "REL_ROLE_POSITION",
+    centerInsight: "INS_ONE_OR_SEPARATE",
+    mutexIds: Object.freeze([]),
+    overlapGroups: Object.freeze([]),
+    qualityPriority: 100,
+    displayRank: 35,
+    scope: "human_approved_exact_pair_skeleton",
+    auditStatus: "human_approved_skeleton_2026-08-24"
+  })),
+  ...GAP_F13_ANSWER_PAIRS.map(([q8, q6]) => Object.freeze({
+    candidateId: `CAN-F13-${q8}${q6}`,
+    familyId: "F13",
+    requiredAnswerIds: Object.freeze([q8, q6]),
+    forbiddenAnswerIds: Object.freeze([]),
+    relationTag: "REL_HOPE_CONDITION",
+    centerInsight: "INS_HOPE_CONDITION",
+    mutexIds: Object.freeze([]),
+    overlapGroups: Object.freeze([]),
+    qualityPriority: 110,
+    displayRank: 80,
+    scope: "human_approved_exact_pair_skeleton",
+    auditStatus: "human_approved_skeleton_2026-08-24"
+  }))
+]);
+
+const STRUCTURAL_CANDIDATES = Object.freeze([
+  ...UNIVERSAL_CANDIDATES,
+  ...GAP_CLOSURE_CANDIDATES
+]);
+
+if (GAP_CLOSURE_CANDIDATES.length !== 12) {
+  throw new Error(`GAP_CLOSURE_CANDIDATE_COUNT_MISMATCH:${GAP_CLOSURE_CANDIDATES.length}`);
+}
+
+if (STRUCTURAL_CANDIDATES.length !== 56) {
+  throw new Error(`STRUCTURAL_CANDIDATE_COUNT_MISMATCH:${STRUCTURAL_CANDIDATES.length}`);
+}
+
+if (new Set(STRUCTURAL_CANDIDATES.map(({ candidateId }) => candidateId)).size !== 56) {
+  throw new Error("STRUCTURAL_CANDIDATE_ID_DUPLICATE");
+}
+
+  return { UNIVERSAL_REGISTRY_SCHEMA_VERSION, FAMILY_ORDER, UNIVERSAL_CANDIDATES, GAP_CLOSURE_CANDIDATES, STRUCTURAL_CANDIDATES };
+})();
+
+const __production_module_3 = (() => {
+const SPEED_PROTOTYPE_COMPONENTS = Object.freeze({
+  "CAN-F01-Q1cQ8a": Object.freeze({
+    heading: "「土台を固めたい」と「会社以外の収入が動き始めている」は、どこでつながりますか",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "会社以外の収入が少し生まれても、お金の土台はまだ変わらないと感じることがあります。反対に、会社以外の収入がなくても、毎月のお金の流れや急な支出への備えが見えれば、土台が固まったと感じることもあります。" }),
+      Object.freeze({ type: "p", text: "いま気になっていることとして選んだのは、「お金の不安を減らして、土台を固めたい」。1年後に望む状態として選んだのは、「会社以外の収入が、動き始めている」でした。前者は回答した時点の関心、後者は1年後に望む姿です。" }),
+      Object.freeze({ type: "p", text: "会社以外の収入が生まれることを、土台が変わり始める一つの目印として考えていたなら、二つは同じ流れの中にあります。ただし、どの段階から「収入が動き始めた」と呼ぶかによって、土台とのつながり方は変わります。" }),
+      Object.freeze({ type: "p", text: "一方で、「土台」は今あるお金の流れを把握する話、「会社以外の収入」は働き方の選択肢を増やす話として、別々に思い浮かべていた可能性もあります。この場合は、片方が変わっても、もう片方の感じ方は変わらないかもしれません。" }),
+      Object.freeze({ type: "p", text: "会社以外の収入が生まれた場面と、土台が固まったと感じる場面を別々に想像すると、二つを同じ変化として見ていたのか、関係のある別の変化として見ていたのかを区別できます。" })
+    ])
+  }),
+  "CAN-F02-Q8a": Object.freeze({
+    heading: "「会社以外の収入が動き始めた」と言える境目",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "どの種類の収入を考えていたかと、どの段階から「動き始めた」と呼ぶかは、別の話です。1年後に望む状態として選んだ「会社以外の収入が、動き始めている」には、この二つが含まれています。" }),
+      Object.freeze({ type: "p", text: "たとえば、自分が作業をして受け取る収入と、作品や仕組みを通じて入る収入では、始まりを実感する場面が違います。回答したときに、具体的な方法まで思い浮かべていた場合もあれば、会社の給料以外という広い意味で選んだ場合もあります。" }),
+      Object.freeze({ type: "p", text: "「動き始めた」の境目も一つではありません。初めて申し込みや購入があった時点、実際に入金された時点、同じ方法をもう一度試せそうだと感じた時点では、見ているものが異なります。金額よりも、会社以外からお金が入る経路を一度確認できたことを境目にする考え方もあります。" }),
+      Object.freeze({ type: "p", text: "収入の種類と、動き始めたと判断する段階を分けておくと、「どの方法ならよいか」と「どこまで進めば望んだ状態と言えるか」を一緒にせずに考えられます。具体的な方法が決まっている場合も、まだ決まっていない場合も、この区別は残ります。" }),
+      Object.freeze({ type: "p", text: "回答したときに思い浮かべたのは、どの収入の、どの段階だったでしょうか。方法がまだ決まっていなかった場合も、「何が起きたら動き始めたと言えるか」が、自分にとっての境目になります。その境目が分かると、1年後の希望を金額だけではない言葉で捉えられます。" })
+    ])
+  }),
+  "CAN-F03-Q3a": Object.freeze({
+    heading: "「守りたいもの」と「余白の少なさ」を分けて考える",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "お金の状態については、「守りたいものが多く、余白は少ない」を選んでいます。一つの選択肢の中に、「守りたいもの」と「余白」という二つの言葉が入っています。回答したときに、両方を同じお金について考えていたかどうかで、意味は変わります。" }),
+      Object.freeze({ type: "p", text: "「守りたいもの」と聞いて、毎日の生活、すでに分けてあるお金、これから予定している支出などを思い浮かべた可能性があります。「余白」は、今すぐ自由に使えるお金を指す場合もあれば、毎月残る金額や、予定外のことに対応できる範囲を指す場合もあります。" }),
+      Object.freeze({ type: "p", text: "守りたいものが多いから余白が少ないと考えていたなら、二つは同じ状況を別の面から表した言葉です。一方、守りたいものの多さとは関係なく、別の理由で余白が少ないと感じていた可能性もあります。選択肢を一つ選んだだけでは、二つの関係までは決まりません。" }),
+      Object.freeze({ type: "p", text: "二つを分けておくと、すぐに何かを減らす話へ進まずに、自分がどこまでを「守る対象」として考えていたかを確かめられます。守りたい範囲が同じでも、どのくらい残っていれば余白と呼べるかは変わることがあります。反対に、使えるお金の額が同じでも、守りたい対象が変われば感じ方が変わる場合があります。" }),
+      Object.freeze({ type: "p", text: "回答したときに「守りたいもの」として最初に浮かんだのは何で、「余白」と呼んでいたのはどの範囲のお金だったでしょうか。同じお金を指しているのか、対象や時期が違うのかが分かると、この回答で捉えていたお金の状態が具体的になります。" })
+    ])
+  }),
+  "CAN-F04-Q2a": Object.freeze({
+    heading: "「平日も動ける」は、どの平日を指していましたか",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "自由に使える時間と体力については、「平日も動ける。気力もある」を選んでいます。最近の具体的な一日を思い浮かべた場合と、普段の平日について答えた場合では、この言葉が指す範囲は違います。" }),
+      Object.freeze({ type: "p", text: "同じ平日でも、朝、仕事のあと、予定が決まっている日など、時間帯や条件によって感覚は変わります。特定の曜日や時間帯が浮かぶなら、「平日ならいつでも」という意味ではなく、その条件に近い日の自分を思い浮かべた回答かもしれません。" }),
+      Object.freeze({ type: "p", text: "一度予定を入れられることと、週に何度か同じ時間を取りやすいことも別です。「平日も」という言葉で、特定の日、週に数日、平日はほぼ毎日のどれを思い浮かべたかによって、回答の広さが変わります。今週の感覚なのか、しばらく続いている感覚なのかでも、受け取り方は異なります。" }),
+      Object.freeze({ type: "p", text: "この回答には、「動ける」と「気力もある」という二つの要素も含まれています。予定を入れられる時間があることと、その時間を何かに使いたいと感じることを、同じ感覚として選んだのか、別々に確かめると、自分が答えていた範囲をより具体的にできます。" }),
+      Object.freeze({ type: "p", text: "曜日、時間帯、頻度、期間のうち、この回答を選ぶときに条件として思い浮かべたものはあるでしょうか。一つだけ挙げてみると、「平日も動ける」と考えていた範囲を、自分の生活に沿った言葉で捉え直しやすくなります。" })
+    ])
+  }),
+  "CAN-F05-Q4a": Object.freeze({
+    heading: "「苦にならない。むしろ好き」は、どんな場面のことですか",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "顔や声を出したり、発信したりすることについては、「苦にならない。むしろ好き」を選んでいます。この質問には、顔を出すこと、声を届けること、考えや作品を発信することが並んでいますが、三つを同じように思い浮かべたとは限りません。" }),
+      Object.freeze({ type: "p", text: "たとえば、人と直接話すことは好きでも、不特定多数へ動画を出す場面は別に感じることがあります。反対に、文章や作品を公開することは好きでも、自分の顔や声を前に出すことは、違う話として考える場合もあります。相手が一人か、多くの人かでも、思い浮かぶ場面は変わります。" }),
+      Object.freeze({ type: "p", text: "また、「苦にならない」と「むしろ好き」のどちらを強く意識して選んだかでも、この回答の意味は少し違います。負担を感じにくいことと、自分からやりたいと感じることは、重なる場合もあれば、別々の場合もあります。" }),
+      Object.freeze({ type: "p", text: "この回答を選んだとき、顔、声、文章や作品のうち、どれを最初に思い浮かべたでしょうか。あわせて、誰に見せる場面だったかも振り返ってみてください。その場面で「苦にならない」と感じたのか、「好き」と感じたのかによっても、回答の意味は変わります。" })
+    ])
+  }),
+  "CAN-F08-Q7c": Object.freeze({
+    heading: "「コツコツ管理する力」で思い浮かべたもの",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "いま手元にある持ち味として選んだのは、「コツコツ管理する力」でした。この言葉は、何を管理することか、どんな行動を続けることか、どのくらいの頻度を思い浮かべたかによって、指す内容が変わります。" }),
+      Object.freeze({ type: "p", text: "数字や記録をそろえること、予定や締切を忘れないようにすること、作業の進み具合を見直すことなど、「管理」と呼べる行動は一つではありません。毎日同じことを続ける場面を思い浮かべた場合もあれば、必要なときに状況を確認して整える場面を思い浮かべた場合もあります。" }),
+      Object.freeze({ type: "p", text: "具体的な経験が浮かぶなら、「何を」「どんな方法で」「どのくらいの間」扱っていたかに分けてみてください。具体例がすぐに浮かばない場合は、「コツコツ」と「管理」のどちらに、より自分らしさを感じて選んだかを振り返る方法もあります。" }),
+      Object.freeze({ type: "p", text: "この選択肢を見たとき、具体的な場面が浮かんだでしょうか。浮かんだ場合は、そこでしていたことを「記録する」「確認する」「そろえる」など、動詞を一つ使って表してみてください。浮かばない場合は、「コツコツ」と「管理」のどちらを意識して選んだかだけを振り返ります。" })
+    ])
+  }),
+  "CAN-F18-Q1cQ3a": Object.freeze({
+    heading: "「土台を固めたい」と「守りたいものが多い」は、同じお金の話ですか",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "いま気になっていることでは、「お金の不安を減らして、土台を固めたい」を選んでいます。お金の状態では、「守りたいものが多く、余白は少ない」を選びました。二つともお金に関する回答です。同じお金の状況を思い浮かべたのか、用途や時期の違うお金について答えたのかを分けて考えます。" }),
+      Object.freeze({ type: "p", text: "同じ状況を思い浮かべていたなら、何が変われば「土台が固まった」と感じるのかが、確認したい点になります。余白が増えることを望んでいたのか、余白が少なくても困らない見通しを持ちたかったのかで、求めている変化は異なります。" }),
+      Object.freeze({ type: "p", text: "一方で、「守りたいもの」と「土台」で、用途や対象の違うお金を思い浮かべていた可能性もあります。余白の少なさが変わっても不安の感じ方が同じなら、二つは別の論点として考えた方が自分の感覚に近いかもしれません。" }),
+      Object.freeze({ type: "p", text: "自由に使えるお金が少し増えた場面を想像したとき、それだけで「土台が固まる方向へ進んだ」と感じるなら、二つの回答は近い範囲を指していたと考えられます。それとは別に、はっきりさせたいことや整えたいことが残るなら、二つは分けて考えた方が自分の感覚に近くなります。" })
+    ])
+  }),
+  "CAN-F13-Q8aQ6a": Object.freeze({
+    heading: "会社についての答えと、会社以外の収入への希望は結びついていましたか",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "会社との距離感では、「不満はあるが、使えるものは使える」を選んでいます。1年後に望む状態では、「会社以外の収入が、動き始めている」を選びました。二つを同じ働き方の話として考えていた場合もあれば、それぞれ別のことを思い浮かべていた場合もあります。" }),
+      Object.freeze({ type: "p", text: "同じ話として考えていたなら、会社についての現在の答えと、会社以外の収入が動き始めている1年後の希望を、一つの働き方の中で考えていたのかもしれません。ただし、「使えるもの」が具体的に何を指すかは、この回答だけでは決まりません。" }),
+      Object.freeze({ type: "p", text: "別の話として選んだ可能性もあります。会社への不満や、会社で使えると感じるものが変わっても、会社以外の収入を望む気持ちは変わらないことがあります。その場合、1年後の希望は、今の会社への評価とは別の理由から選ばれたものとして考えられます。" }),
+      Object.freeze({ type: "p", text: "今の会社への不満がなくなっても同じ希望を選ぶか、会社で「使える」と感じるものがなくなっても同じ希望を選ぶか。どちらの条件で答えが変わるかを見ると、会社についての回答と1年後の希望を、どこまで結びつけていたかが分かります。どちらでも希望が変わらないなら、二つは別の話として考えていた可能性が残ります。" })
+    ])
+  }),
+  "CAN-F03-Q3b": Object.freeze({
+    heading: "「生活はまわる」と「増やし方がわからない」は、何を指していますか",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "お金の状態では、「生活はまわるが、増やし方がわからない」を選んでいます。この回答には、日々の生活についての見方と、何かを増やす方法についての見方が、同じ一文に含まれています。" }),
+      Object.freeze({ type: "p", text: "「生活はまわる」で思い浮かべた範囲は、毎月の支出だけかもしれませんし、急な支出や近い時期の予定まで含んでいたかもしれません。一方、「増やす」が指すものも、毎月残るお金、すでに持っているお金、収入そのものなど、いくつかの捉え方があります。" }),
+      Object.freeze({ type: "p", text: "生活がまわっていると感じることと、増やし方が分かることは、同じ基準で判断しているとは限りません。前者は生活に必要な支出を続けられる感覚、後者はこれから選べる方法についての関心というように、役割が分かれている場合もあります。" }),
+      Object.freeze({ type: "p", text: "生活がまわる範囲とは別に、支出や収入について、まだ把握したいことがあったのかもしれません。何が保てていて、「増やす」が何を指していたのかを分けて考えると、この回答に含まれていた二つの話を整理できます。" })
+    ])
+  }),
+  "CAN-F04-Q2b": Object.freeze({
+    heading: "「週末なら、まとまって取れる」の週末と長さ",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "自由に使える時間と体力では、「週末なら、まとまって取れる」を選んでいます。毎週の週末を思い浮かべたのか、予定の少ない週末だけを思い浮かべたのかで、この回答が指す頻度は変わります。" }),
+      Object.freeze({ type: "p", text: "「まとまって」という長さも、人によって同じではありません。一時間ほどを想像する場合もあれば、半日ほど予定を入れずに過ごせることを指す場合もあります。土曜と日曜のどちらを思い浮かべたか、時間帯まで決まっていたかによっても、回答の範囲は異なります。" }),
+      Object.freeze({ type: "p", text: "時間が空いていることと、その時間に何かをしたいと感じることも分けられます。この回答で強く意識したのが「週末」なのか、「まとまった時間」なのか、それとも気力を含めた感覚なのかによって、答えに込めた意味は変わります。" }),
+      Object.freeze({ type: "p", text: "同じ長さの時間でも、途中で予定が入る可能性がある場合と、終わりまで自分で使い方を決められる場合では、「まとまって取れる」という感覚が違います。長さだけでなく、中断されにくさを含めて選んだ可能性もあります。" }),
+      Object.freeze({ type: "p", text: "回答したときに思い浮かべたのは、どの週末の、どのくらいの時間だったでしょうか。特定の条件はあったでしょうか。週末ならいつでもという答えなのか、条件が合う週末についての答えなのかを振り返れます。" })
+    ])
+  }),
+  "CAN-F04-Q2c": Object.freeze({
+    heading: "「すきま時間が、少しだけ」の範囲",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "自由に使える時間と体力では、「すきま時間が、少しだけ」を選んでいます。この回答の「すきま時間」が、どの時間帯を指すか、どのくらいの長さを指すかは、選択肢だけでは一つに決まりません。" }),
+      Object.freeze({ type: "p", text: "移動の合間、昼休み、家で予定と予定の間に空く時間など、同じ「すきま」でも状況は違います。一週間の合計時間が同じでも、数分ずつ複数回ある場合と、まとまった時間が一回ある場合では、使い方の感覚は変わります。" }),
+      Object.freeze({ type: "p", text: "また、時間が空いていることと、その時間を自由に使えることは同じとは限りません。途中で中断する可能性があるのか、時間帯が毎回変わるのかによっても、「少しだけ」と感じた理由は変わります。" }),
+      Object.freeze({ type: "p", text: "「少しだけ」が、一回の短さを指していたのか、一週間を通した回数の少なさを指していたのかも分けられます。短い時間が何度かあることと、まとまった時間が一度だけあることを、自分の中で同じように数えていたとは限りません。" }),
+      Object.freeze({ type: "p", text: "最初に思い浮かべた時間帯と長さを振り返ると、自分がどのような時間を「すきま時間」として数えていたのかが見えてきます。" })
+    ])
+  }),
+  "CAN-F04-Q2d": Object.freeze({
+    heading: "「いまは余裕がない」の「いま」と「余裕」",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "自由に使える時間と体力では、「正直、いまは余裕がない」を選んでいます。この回答には、回答した時点を示す「いま」と、時間や体力についての「余裕」という二つの確認点があります。" }),
+      Object.freeze({ type: "p", text: "「いま」が今日や今週のことを指す場合もあれば、しばらく続いている期間を指す場合もあります。特定の予定が重なっている時期だけの感覚なのか、普段の生活についての感覚なのかで、この回答が当てはまる範囲は変わります。" }),
+      Object.freeze({ type: "p", text: "「余裕がない」で強く意識したのが、自由に使える時間なのか、体力なのか、両方なのかも分けられます。時間は空いていても別のことに使いたい場合や、予定は入れられても体力を残しておきたい場合では、同じ選択肢でも思い浮かべていた内容が違います。" }),
+      Object.freeze({ type: "p", text: "一日の中でも、朝と仕事のあとでは感じ方が違うことがあります。特定の時間帯だけ余裕がないと感じたのか、どの時間帯でも同じだったのかを分けると、回答したときの状況を生活全体へ広げずに振り返れます。" }),
+      Object.freeze({ type: "p", text: "回答したときの「いま」は、いつからいつまでを指していたでしょうか。その期間について、時間と体力のどちらを主に思い浮かべたかを振り返ると、この回答が表していた範囲を捉えやすくなります。" })
+    ])
+  }),
+  "CAN-F06-Q5b": Object.freeze({
+    heading: "「小さく試す」と「広げる」で変えるもの",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "何かを始めるときの進め方では、「小さく試してから、広げる」を選んでいます。この回答では、何を小さくするのかと、試したあとに何を広げるのかを分けて考えられます。" }),
+      Object.freeze({ type: "p", text: "小さくするものは、使う時間、かける費用、扱う範囲、見せる相手の数など、一つではありません。完成度を下げたものを思い浮かべた場合もあれば、内容は変えずに対象だけを絞る場面を思い浮かべた場合もあります。" }),
+      Object.freeze({ type: "p", text: "「広げる」についても、同じ内容を多くの人へ見せること、使う時間を増やすこと、扱う内容を増やすことでは意味が違います。小さくしたものと、あとで広げたいものが同じとは限りません。" }),
+      Object.freeze({ type: "p", text: "何を見て「試せた」と感じるかも、この回答だけでは決まっていません。形にできたこと、誰かの反応があったこと、自分の負担を確かめられたことなど、何を「試せた」と判断する区切りにしていたかによって、その後に広げたいものも変わります。" }),
+      Object.freeze({ type: "p", text: "この回答を選んだとき、最初に何を小さくし、試したあとに何を広げる場面が浮かんでいたでしょうか。小さくするものと広げるものを分けることで、自分が想像していた「小さな試し方」の範囲が見えやすくなります。" })
+    ])
+  }),
+  "CAN-F07-Q6b": Object.freeze({
+    heading: "「可もなく不可もなく」は、会社のどの部分ですか",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "会社との距離感では、「まあまあ。可もなく不可もなく」を選んでいます。この言葉が、会社との関係全体をまとめた答えなのか、特定の部分についての答えなのかを分けて考えます。" }),
+      Object.freeze({ type: "p", text: "仕事内容、働く時間、人との関わり、制度や待遇など、会社について考えるときの対象は一つではありません。いくつかを合わせた全体的な感覚として選んだ場合もあれば、最初に浮かんだ一つの場面をもとに選んだ場合もあります。" }),
+      Object.freeze({ type: "p", text: "全体としては「まあまあ」と感じていても、部分ごとに見ると答えが分かれることがあります。良いと感じる部分と気になる部分を合わせた答えなのか、最初に浮かんだ一つの部分についての答えなのかでも、同じ選択肢の意味は異なります。" }),
+      Object.freeze({ type: "p", text: "最初に浮かんだ部分を除いても同じ答えを選びそうなら、会社全体について答えた可能性があります。答えが変わりそうなら、特定の部分を思い浮かべて答えた可能性があります。" })
+    ])
+  }),
+  "CAN-F07-Q6c": Object.freeze({
+    heading: "「少し消耗している」は、どの場面のことですか",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "会社との距離感では、「少し消耗している自覚がある」を選んでいます。この回答で思い浮かべたのが、会社との関係全体なのか、特定の業務や時間帯なのかによって、言葉が指す範囲は変わります。" }),
+      Object.freeze({ type: "p", text: "特定の場面が浮かぶなら、決まった業務、会議、時間帯、人とのやり取りのうち、最初に思い浮かんだのはどれだったでしょうか。その場面を除いた会社での時間まで、同じ言葉で表したいかが一つの分かれ目です。" }),
+      Object.freeze({ type: "p", text: "その場面がなかったと仮定しても「少し消耗している」と答えそうなら、会社との関係を広く思い浮かべた回答だったのかもしれません。答えが変わりそうなら、特定の場面を思い浮かべた回答として捉えられます。" }),
+      Object.freeze({ type: "p", text: "特定の場面が浮かんだあとは、似た場面が一度だけだったのか、繰り返されていたのかを振り返ります。一度だけなら、その出来事についての答えとして残せます。繰り返されていたなら、どの場面に同じ感覚があったかを並べることで、この言葉を使いたい範囲が見えてきます。" })
+    ])
+  })
+});
+
+  return { SPEED_PROTOTYPE_COMPONENTS };
+})();
+
+const __production_module_4 = (() => {
+const CANDIDATE_COMPONENTS_BATCH_2 = Object.freeze({
+  "CAN-F06-Q5a": Object.freeze({
+    heading: "「まず出す」ものと、あとから直す範囲",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "「まず出して、走りながら直す」といっても、「出す」が不特定多数への公開だけを指すとは限りません。何かを始めるときの進め方として、どこまでを「出す」と考えていたかを見ていきます。" }),
+      Object.freeze({ type: "p", text: "自分用のメモとして書き出す、試作品を一つつくる、限られた相手に見せる、外へ公開するといったように、「出す」にはいくつかの段階があります。どの段階まで進むことを考えていたかで、この回答の意味は変わります。" }),
+      Object.freeze({ type: "p", text: "「直す」範囲も、すべてが後から変えられるという意味ではありません。文章や表現は直せても、かけた費用、誰かとの約束、一度外へ出した情報などは、元の状態へ戻しにくいことがあります。何を「出す」場面について答えたかによって、直せる範囲は異なります。" }),
+      Object.freeze({ type: "p", text: "思い浮かべた「出すもの」を一つ決め、あとから直せる部分と、出す前に決めておきたい部分を二列にしてみてください。どちらに何が入るかを見ると、自分が「まず出す」と考えていた範囲がはっきりします。" })
+    ])
+  }),
+  "CAN-F06-Q5c": Object.freeze({
+    heading: "「ある程度設計する」の範囲",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "何かを始めるときの進め方では、「ある程度、設計してから動く」を選んでいます。この回答で分けて考えたいのは、動く前に決めておきたいことと、動いてから決められることです。" }),
+      Object.freeze({ type: "p", text: "設計の中身には、目的、順序、使う時間や費用の範囲、終わりの条件などがあります。すべてを先に決めたいと考えたのか、一つだけ確定しておきたいことがあったのかで、「ある程度」の幅は変わります。" }),
+      Object.freeze({ type: "p", text: "「動く」という言葉も、準備を始める、試作する、誰かに見せる、申し込むなど、対象によって指す行動が異なります。どの段階を「動く」と考えていたかで、先に必要だと感じる設計も変わります。" }),
+      Object.freeze({ type: "p", text: "一つの題材を思い浮かべ、動く前に決めておきたいことを一つ挙げてみてください。ほかのことは動いたあとでも決められると感じるなら、その一つが、回答したときの「ある程度」に近いと考えられます。" })
+    ])
+  }),
+  "CAN-F06-Q5d": Object.freeze({
+    heading: "「納得いくまで整える」の終わり",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "何かを始めるときの進め方では、「納得いくまで整えてから出したい」を選んでいます。この回答で分けて考えたいのは、何が整ったら納得できるのかと、どの段階を「出す」と考えていたかです。" }),
+      Object.freeze({ type: "p", text: "整えたい対象には、内容、表現、手順、数字、相手への説明などがあります。すべてに納得してから出したいと考えたのか、一つの部分にだけ明確な基準があったのかで、「納得いくまで」の意味が変わります。" }),
+      Object.freeze({ type: "p", text: "「出す」が、自分用の下書きをつくることなのか、限られた相手に見せることなのか、外へ公開することなのかによっても、必要な納得感は同じとは限りません。相手や公開範囲が変わると、先に整えたいものが変わる場合もあります。" }),
+      Object.freeze({ type: "p", text: "回答したときの題材を一つ思い浮かべ、「出す前にこれだけは整っていてほしい」と感じることを一つ書いてみてください。相手を自分、知っている人、不特定多数と変えたときに、その基準も変わるかを振り返れます。" })
+    ])
+  }),
+  "CAN-F07-Q6a": Object.freeze({
+    heading: "会社への「不満」と「使えるもの」を分ける",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "会社との距離感では、「不満はあるが、使えるものは使える」を選んでいます。不満を感じた対象と、使えると感じた対象が同じか別かで、この回答の中身は変わります。" }),
+      Object.freeze({ type: "p", text: "不満の対象には、仕事内容、時間、人との関わり、評価、制度など、いくつかの範囲があります。一方、「使えるもの」も、学べること、制度、人とのつながり、働き方の条件など、何を思い浮かべたかは一つに決まりません。" }),
+      Object.freeze({ type: "p", text: "同じ対象について、気になる点と使える点の両方を見ていた可能性があります。別の対象を思い浮かべていたなら、会社の中でも部分ごとに見方が違っていたことになります。" }),
+      Object.freeze({ type: "p", text: "「不満を感じた対象」と「使えると感じた対象」を、一つずつ書いて比べてみてください。同じものが入れば、一つの対象に二つの面を見ていたと考えられます。違うものが入れば、会社全体の評価ではなく、部分ごとの答えとして整理できます。" })
+    ])
+  }),
+  "CAN-F07-Q6d": Object.freeze({
+    heading: "「正直、かなりしんどい」と感じた範囲",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "会社との距離感では、「正直、かなりしんどい」を選んでいます。最初に浮かんだのは、仕事内容、時間帯、人とのやり取り、仕事の進め方のうち、どのことだったでしょうか。" }),
+      Object.freeze({ type: "p", text: "次に見たいのは、その言葉を当てた範囲です。特定の出来事だけを指したのか、似た場面が繰り返されることを指したのか、会社で過ごす時間を広く思い浮かべたのかで、この言葉が表す範囲は変わります。" }),
+      Object.freeze({ type: "p", text: "同じ場面が終わったあとも「しんどい」という感覚が残るのか、その場面を離れると切り替わるのかも、回答の範囲を知る手がかりになります。原因を決めるのではなく、どこからどこまでを同じ言葉で表したくなるかを確かめます。" }),
+      Object.freeze({ type: "p", text: "最初に浮かんだ場面を一つ書き、「一度だけ」「似た場面が続く」「会社で過ごす時間全体」のうち、どれに近いかを選んでみてください。続いて、その場面を離れた後にも同じ感覚が残るかを書き添えると、回答したときの範囲が具体的になります。" })
+    ])
+  }),
+  "CAN-F08-Q7a": Object.freeze({
+    heading: "「とりあえず動ける」で思い浮かべた場面",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "「とりあえず動ける、行動力」を、自分の持ち味として選んでいます。この言葉を見たとき、実際に動いた場面が浮かんだでしょうか。浮かんだ場面から、「とりあえず」と「動ける」の中身を確かめます。" }),
+      Object.freeze({ type: "p", text: "回答したときに、準備が完璧でなくても始めた場面を思い浮かべた可能性があります。一方で、決められたことにすぐ取りかかれる、最初の一歩だけは早いなど、より限られた場面を思い浮かべたことも考えられます。" }),
+      Object.freeze({ type: "p", text: "「とりあえず」が指す準備の程度と、「動ける」が指す行動の範囲を分けると、この持ち味の中身が見えやすくなります。始める、誰かに声をかける、一つの作業を終えるでは、「動く」の中身が異なります。" }),
+      Object.freeze({ type: "p", text: "この選択肢を見て最初に浮かんだ場面はあるでしょうか。あるなら、そのときに実際にしたことを動詞一つで表してみてください。具体例が浮かばない場合は、「とりあえず」と「行動力」のどちらに近さを感じたかだけを振り返れます。" })
+    ])
+  }),
+  "CAN-F08-Q7b": Object.freeze({
+    heading: "「語れる経験」と「専門性」を分けて考える",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "「語れる経験・専門性」を、自分の持ち味として選んでいます。この言葉を見たとき、最初に浮かんだ題材は何だったでしょうか。その題材を手がかりに、経験と専門性を分けて考えます。" }),
+      Object.freeze({ type: "p", text: "「語れる経験」で思い浮かべるものは、仕事だけとは限りません。日常で続けてきたこと、趣味、学んできたこと、失敗から分かったことを思い浮かべた場合もあります。「専門性」も、資格や職種だけでなく、自分がよく知っていると感じる領域を指した可能性があります。" }),
+      Object.freeze({ type: "p", text: "二つに同じ題材が入る場合もあれば、経験としては語れるけれど専門性とは考えていない場合もあります。反対に、よく知っていると感じていても、語れる経験は別に思い浮かべたかもしれません。二つを分けると、経験と専門性のどちらを意識したのか、または両方だったのかが見えやすくなります。" }),
+      Object.freeze({ type: "p", text: "この回答を選んだとき、最初に浮かんだ題材を一つ書いてみてください。その題材は「自分が経験したこと」「よく知っていると感じること」のどちらに近いでしょうか。両方なら、どこが経験で、どこを専門性と感じたかを分けて振り返れます。" })
+    ])
+  }),
+  "CAN-F08-Q7d": Object.freeze({
+    heading: "「周りへの気配り」と「我慢強さ」を分ける",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "「周りへの気配りと、我慢強さ」を、自分の持ち味として選んでいます。この言葉を見たとき、具体的な場面が浮かんだでしょうか。同じ場面に二つがあったのか、別々の経験を重ねたのかを見ていきます。" }),
+      Object.freeze({ type: "p", text: "気配りとして思い浮かべたのが、相手が困らないように準備すること、場を見て声をかけること、周りが困らないよう自分の役割を先に果たすことのどれに近いかによって、この言葉の中身は異なります。" }),
+      Object.freeze({ type: "p", text: "我慢強さも、難しいことを続けた、結果を急がず待った、決めたことを守ったなど、思い浮かべた行動は一つではありません。気配りと同じ場面にあったのか、別の経験を思い浮かべたのかで、この選択肢の中身は変わります。" }),
+      Object.freeze({ type: "p", text: "気配りを感じた場面と、我慢強さを感じた場面を、それぞれ一つ思い浮かべてみてください。同じ場面なら、どんな行動を気配りと捉え、どんな行動を我慢強さと捉えたのかを分けられます。別の場面なら、それぞれを別の例として書き残せます。" })
+    ])
+  })
+});
+
+if (Object.keys(CANDIDATE_COMPONENTS_BATCH_2).length !== 8) {
+  throw new Error("CANDIDATE_COMPONENT_BATCH_2_COUNT_MISMATCH");
+}
+
+  return { CANDIDATE_COMPONENTS_BATCH_2 };
+})();
+
+const __production_module_5 = (() => {
+const CANDIDATE_COMPONENTS_BATCH_3 = Object.freeze({
+  "CAN-F01-Q1aQ8a": Object.freeze({
+    heading: "AIは、1年後の希望にどこまで含まれているか",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "1年後、会社以外の収入が生まれていても、それがAIを使ったものでなければ、望んだ状態とは少し違うと感じるでしょうか。この答えによって、二つの回答の中心が変わります。" }),
+      Object.freeze({ type: "p", text: "いま気になっていることとして選んだのは、「AIを使って、新しい収入をつくりたい」です。ここには、AIという方法への関心と、新しい収入への関心が並んでいます。一方、1年後の希望は「会社以外の収入が、動き始めている」でした。" }),
+      Object.freeze({ type: "p", text: "AI以外の方法でも希望に近いと感じるなら、1年後まで残したいのは会社以外の収入で、AIは現在気になっている方法の一つだと考えられます。AIを使っていることも欠かせないと感じるなら、方法そのものが1年後の姿にも含まれています。" }),
+      Object.freeze({ type: "p", text: "「AIを使っていること」と「会社以外の収入があること」を別々に書き、1年後に必要だと思う方へ印を付けてみてください。両方なら二つの回答は同じ方向を向き、後者だけなら、現在の関心と1年後の希望で役割が分かれます。" })
+    ])
+  }),
+  "CAN-F01-Q1aQ8b": Object.freeze({
+    heading: "AI・収入・本や発信は、同じ話だったか",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "「AIを使って新しい収入をつくる」と「本や発信が資産になる」の間には、二つの未確認点があります。AIで扱いたいものが本や発信だったのか。1年後の本や発信に、収入まで求めていたのか。この二つは、回答からはまだ一つに決まりません。" }),
+      Object.freeze({ type: "p", text: "現在の関心では、AIと新しい収入を一緒に選んでいます。1年後の希望では、本や発信と資産という言葉を選びました。同じ取り組みを思い浮かべていた可能性はありますが、AI、収入、本や発信のすべてを一つにつないでいたとは限りません。" }),
+      Object.freeze({ type: "p", text: "AIで本や発信をつくることは考えていたが、資産の条件に収入は含めていなかった。反対に、AIで収入をつくることと、本や発信を資産にすることを別々に考えていた。こうした組み合わせも成り立ちます。" }),
+      Object.freeze({ type: "p", text: "「AIで扱いたいもの」と「新しい収入のもととして考えたもの」を一つずつ書き、共通するものがあるか比べてください。次に、「1年後に本や発信が資産になったと感じる条件」を書きます。三つを並べると、二つの回答をどこまで一つの話として考えていたかを確かめられます。" })
+    ])
+  }),
+  "CAN-F01-Q1aQ8c": Object.freeze({
+    heading: "新しい収入への関心と、お金の見通し",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "AIを使った新しい収入に関心があることと、1年後にお金の見通しが立っていることは、同じ変化ではありません。前者は回答した時点で気になっていた方法と収入の話、後者はこれからのお金の流れを見渡せる状態への希望です。" }),
+      Object.freeze({ type: "p", text: "AIを使った収入が、お金の見通しを考える材料になると思っていたなら、二つの回答は関係しています。ただ、収入が一度生まれることと、その後のお金の流れまで見えることは分けて考えられます。" }),
+      Object.freeze({ type: "p", text: "AIで何かを試してみたいという関心はありつつ、1年後の見通しには、毎月の収支や必要な金額など、別のことが見える状態を求めていた可能性もあります。その場合、二つはお金に関係していても、確かめたい内容が違います。" }),
+      Object.freeze({ type: "p", text: "AIを使った収入が少し生まれた場面を想像し、それだけで「見通しが立った」と感じるかを考えてみてください。感じるなら、二つは近い変化を指しています。まだ足りないなら、ほかに何が見えていてほしいかが、1年後の希望を知る手がかりになります。" })
+    ])
+  }),
+  "CAN-F01-Q1aQ8d": Object.freeze({
+    heading: "新しい収入と余白を、二つの場面で比べる",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "一つ目は、AIを使った新しい収入はあるものの、心と時間の余白は変わっていない場面。二つ目は、余白は戻っているものの、新しい収入はまだない場面です。どちらが1年後の希望に近いでしょうか。" }),
+      Object.freeze({ type: "p", text: "現在の関心では、「AIを使って、新しい収入をつくりたい」を選んでいます。1年後の希望は、「心と時間に、余白が戻っている」です。二つを同じ変化として考えていたのか、別々に持っていたのかで、先ほどの二場面への感じ方は変わります。" }),
+      Object.freeze({ type: "p", text: "前者に近さを感じるなら、新しい収入をつくることは、余白とは別に残したい関心かもしれません。後者に近さを感じるなら、1年後に望む状態では余白の方を強く意識していた可能性があります。どちらにも足りなさを感じるなら、二つを同時に望んでいたと考えられます。" }),
+      Object.freeze({ type: "p", text: "どちらかを正解にする必要はありません。二つの場面に「近い」「一部近い」「違う」の印を付けるだけでも、現在気になっていることと、1年後まで残したいことの違いを確かめられます。" })
+    ])
+  }),
+  "CAN-F01-Q1bQ8a": Object.freeze({
+    heading: "残したいものと、会社以外の収入のもと",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "経験や知識を形に残すことと、会社以外の収入が動き始めることを、一つの取り組みとして考えていたかが、この組み合わせの分かれ目です。" }),
+      Object.freeze({ type: "p", text: "いま気になっていることとして選んだのは、「自分の経験や知識を、かたちに残したい」。1年後に望む状態として選んだのは、「会社以外の収入が、動き始めている」でした。現在の関心は残す内容に、1年後の希望は収入の状態に重心があります。" }),
+      Object.freeze({ type: "p", text: "形に残した経験や知識を、会社以外の収入のもととしても考えていたなら、同じ対象を異なる時点から見た回答です。会社以外の収入には別の方法を思い浮かべていたなら、残したいものと収入のもとは分かれています。" }),
+      Object.freeze({ type: "p", text: "回答したときに形にしたいと思ったものを一つ挙げてください。次に、1年後の会社以外の収入が何から生まれているかを思い浮かべ、書いてください。同じものが入るかどうかで、二つの回答の関係を確認できます。" })
+    ])
+  }),
+  "CAN-F01-Q1bQ8b": Object.freeze({
+    heading: "今残したい経験や知識は、1年後の本や発信にもあるか",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "現在、形に残したいと思っている経験や知識は、1年後に資産になっている本や発信にも入っているでしょうか。ここでは、資産の条件ではなく、現在と1年後で扱っている内容が同じかを見ていきます。" }),
+      Object.freeze({ type: "p", text: "同じ内容を思い浮かべていたなら、現在形に残したいものが、1年後には本や発信として資産になっている姿を望んでいた可能性があります。形はまだ決めていなくても、残したい中身は共通していたと考えられます。" }),
+      Object.freeze({ type: "p", text: "一方、現在残したい経験や知識と、1年後に本や発信で扱いたい内容が、別のものを指していることもあります。今は過去の経験を整理したいが、1年後には別の題材を扱っていたい、といった違いです。" }),
+      Object.freeze({ type: "p", text: "「今残したいこと」と「1年後の本や発信に入っていてほしいこと」を一つずつ書いて比べてみてください。同じ内容を指していれば、二つの回答をつなぐ題材です。違う内容なら、現在と1年後で題材が変わっている可能性があります。" })
+    ])
+  }),
+  "CAN-F01-Q1bQ8c": Object.freeze({
+    heading: "形に残したいことと、お金の見通しは関係しているか",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "「自分の経験や知識を、かたちに残したい」という現在の関心と、「お金の不安が減って、見通しが立っている」という1年後の希望。二つを関連づけて選んだのか、それぞれ別のこととして選んだのかを確かめます。" }),
+      Object.freeze({ type: "p", text: "形に残したものがお金の見通しにも関係すると考えていたなら、どのような関係を思い浮かべていたでしょうか。収入とのつながり、仕事での使い道、別の選択肢が増えることなど、思い浮かべていた関係によって意味は変わります。" }),
+      Object.freeze({ type: "p", text: "一方、経験や知識を残すことは、収入とは関係なく持っていた関心かもしれません。お金の見通しについても、家計や今後の支出など、形に残すこととは別の内容を思い浮かべていた可能性があります。" }),
+      Object.freeze({ type: "p", text: "経験や知識を一つ形にできたとしても、お金の見通しは変わらないと感じるでしょうか。変わらないなら、この場面では二つの直接のつながりは薄そうです。変わると感じるなら、「何が分かるようになるからか」を一文にすると、自分が考えていた関係が見えやすくなります。" })
+    ])
+  }),
+  "CAN-F01-Q1bQ8d": Object.freeze({
+    heading: "1年後の余白に、形に残すことも含まれているか",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "1年後、心と時間に余白が戻っている場面を思い浮かべたとき、経験や知識を形に残すことも、その暮らしの中にあるでしょうか。この問いは、現在の関心と1年後の希望をどこまで一緒に考えていたかを確かめるものです。" }),
+      Object.freeze({ type: "p", text: "同じ場面にあるなら、余白があることと、残したいものに向き合うことを、両方含んだ1年後を望んでいた可能性があります。この場合も、どちらが先か、片方がもう片方の条件かまでは決まりません。" }),
+      Object.freeze({ type: "p", text: "余白のある場面に、形に残すことが浮かばなくても問題はありません。現在の関心としては経験や知識を残したいが、1年後に望む余白は、別の暮らしの場面について選んだと考えられます。" }),
+      Object.freeze({ type: "p", text: "余白がある1年後の一日を三つの時間帯に分け、そのどこかに「形に残す時間」を置きたいか考えてみてください。置きたいなら、二つが共存する一場面を具体的にできます。置かない場合は、別の日や、もう少し先の時期なら置きたいかも確かめてみます。" })
+    ])
+  })
+});
+
+if (Object.keys(CANDIDATE_COMPONENTS_BATCH_3).length !== 8) {
+  throw new Error("CANDIDATE_COMPONENT_BATCH_3_COUNT_MISMATCH");
+}
+
+  return { CANDIDATE_COMPONENTS_BATCH_3 };
+})();
+
+const __production_module_6 = (() => {
+const CANDIDATE_COMPONENTS_BATCH_4 = Object.freeze({
+  "CAN-F01-Q1cQ8b": Object.freeze({
+    heading: "お金の土台と、本や発信が資産になること",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "二つの場面を分けて考えてみます。一つは、お金の土台は固まっているが、本や発信はまだ資産になっていない場面。もう一つは、本や発信は資産になっているが、お金の土台にはまだ不安が残る場面です。" }),
+      Object.freeze({ type: "p", text: "いま気になっていることとして選んだのは、「お金の不安を減らして、土台を固めたい」。1年後に望む状態として選んだのは、「自分の本や発信が、資産になっている」でした。二つの場面は、それぞれ片方の回答だけが満たされた状態です。" }),
+      Object.freeze({ type: "p", text: "どちらも望んでいたなら、現在の関心と1年後の希望は、1年後にどちらも必要だと感じる別々の要素です。本や発信が資産になることも、お金の土台の一部だと感じるなら、二つをより近い変化として考えていた可能性があります。" }),
+      Object.freeze({ type: "p", text: "二つの場面に「近い」「一部近い」「違う」の印を付けてください。片方だけに近さを感じるのか、どちらにも足りなさを感じるのかを見ると、現在の関心と1年後の希望をどこまで一緒に考えていたかが見えてきます。" })
+    ])
+  }),
+  "CAN-F01-Q1cQ8c": Object.freeze({
+    heading: "「土台を固める」と「見通しが立つ」の関係",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "いま気になっていることでは、「お金の不安を減らして、土台を固めたい」を選んでいます。1年後に望む状態では、「お金の不安が減って、見通しが立っている」を選びました。どちらにもお金の不安が出てきますが、土台と見通しが同じ状態を指すとは限りません。" }),
+      Object.freeze({ type: "p", text: "毎月のお金の流れや急な支出への備えが整えば、土台が固まったと感じることがあります。見通しについては、この先に必要な金額や選べる方法が分かることを指す場合があります。今を支える状態と、これからを考えられる状態として分けることもできます。" }),
+      Object.freeze({ type: "p", text: "反対に、必要なお金が見え、急な変化にも対応できると分かった時点で、土台も見通しも整ったと感じるかもしれません。その場合は、現在の関心と1年後の希望が、同じ状態を別の時点から表しています。" }),
+      Object.freeze({ type: "p", text: "「土台は固まったが、見通しはまだ立っていない」と感じる場面があるでしょうか。あるなら、土台が固まった後も不足しているものが、1年後までに確かめたいことです。思い浮かばないなら、二つは自分の中で近い状態として選ばれた可能性があります。" })
+    ])
+  }),
+  "CAN-F01-Q1cQ8d": Object.freeze({
+    heading: "お金の土台と余白を、別々に置いてみる",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "お金の土台は固まっているが、心と時間の余白は戻っていない場面。心と時間の余白は戻っているが、お金の土台にはまだ不安がある場面。二つを別々に置くと、この回答の組み合わせが見えやすくなります。" }),
+      Object.freeze({ type: "p", text: "現在の関心は、「お金の不安を減らして、土台を固めたい」でした。1年後の希望は、「心と時間に、余白が戻っている」です。一方がお金について、もう一方が心と時間についての回答であり、どちらかだけから両方が決まるわけではありません。" }),
+      Object.freeze({ type: "p", text: "最初の場面にも近さを感じるなら、お金の土台が整うことと、余白が戻ることを別々に捉えていた可能性があります。二つ目にも足りなさを感じるなら、お金の土台も1年後に残したい要素だったと考えられます。" }),
+      Object.freeze({ type: "p", text: "二つの場面を比べ、「お金の土台」「心の余白」「時間の余白」のうち、どれが欠けると望んだ状態から遠く感じるかを確かめてください。三つの関係を、原因ではなく、1年後に置きたい要素として整理できます。" })
+    ])
+  }),
+  "CAN-F01-Q1dQ8a": Object.freeze({
+    heading: "1年後の場面に、二つの回答を置いてみる",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "1年後の暮らしを一つ思い浮かべ、その場面に「働き方や暮らしが整っている」と「会社以外の収入が動き始めている」の二つを置いてみてください。どちらもある場面なのか、片方だけなのかで、回答同士の距離が変わります。" }),
+      Object.freeze({ type: "p", text: "回答した時点で気になっていたのは、「まず、いまの働き方や暮らしを整えたい」でした。1年後に望んだのは、「会社以外の収入が、動き始めている」状態です。前者は現在の関心、後者は将来の希望として選ばれています。" }),
+      Object.freeze({ type: "p", text: "同じ場面に二つがあるなら、現在の関心と1年後の希望を一つの暮らしの中で考えていた可能性があります。会社以外の収入だけが浮かぶなら、働き方や暮らしは1年後にはすでに整っているのか、別の時期に考えることとして置いているのかを確かめられます。" }),
+      Object.freeze({ type: "p", text: "二つを同じ場面へ置きにくい場合は、別々の1年後の場面として書いてもかまいません。どちらの方が正しいかではなく、回答したときに二つを同じ未来へ含めていたかを確かめられます。" })
+    ])
+  }),
+  "CAN-F01-Q1dQ8b": Object.freeze({
+    heading: "整った暮らしの中に、本や発信もあるか",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "働き方や暮らしが整っている1年後を思い浮かべたとき、その場面に、資産になった本や発信もあるでしょうか。同じ場面に置けるかどうかが、二つの回答をつなぐ手がかりになります。" }),
+      Object.freeze({ type: "p", text: "いま気になっていることとしては、「まず、いまの働き方や暮らしを整えたい」を選んでいます。1年後の希望は、「自分の本や発信が、資産になっている」でした。二つは現在と1年後で、見ている時点が違います。" }),
+      Object.freeze({ type: "p", text: "同じ場面に自然に置けるなら、暮らしが整っていることと、本や発信が資産になっていることを、両方含んだ1年後を思い浮かべていた可能性があります。置きにくいなら、別の場面や別の時期について選んだことも考えられます。" }),
+      Object.freeze({ type: "p", text: "1年後の整った暮らしを一つの場面として書き、その場面で本や発信がどのような状態なら「資産になっている」と言えるかを一文添えてください。二つを同じ場面に置いていたのか、別々の希望として考えていたのかを確かめられます。" })
+    ])
+  }),
+  "CAN-F01-Q1dQ8c": Object.freeze({
+    heading: "「整った状態」と「見通しが立った状態」を言葉にする",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "まず、「働き方や暮らしが整ったと言えるのは、＿＿＿」と、「お金の見通しが立ったと言えるのは、＿＿＿」の空欄を一つずつ埋めてみてください。同じ言葉が入るかどうかで、二つの回答の関係が変わります。" }),
+      Object.freeze({ type: "p", text: "現在の関心として選んだのは、「まず、いまの働き方や暮らしを整えたい」。1年後に望む状態として選んだのは、「お金の不安が減って、見通しが立っている」でした。現在の働き方や暮らしが整ったと判断する基準と、1年後のお金について見えていてほしい基準を扱う回答です。" }),
+      Object.freeze({ type: "p", text: "空欄に共通する内容が入るなら、働き方や暮らしについて整えたいことと、お金について見えていてほしいことを、関連づけて考えていた可能性があります。異なる内容が入るなら、二つにはそれぞれ別の基準があります。" }),
+      Object.freeze({ type: "p", text: "共通する言葉がなくても、二つが無関係だと決める必要はありません。どちらも同じ1年後の暮らしに必要か、それぞれ別の場面で望んでいるかまで書き添えると、現在の関心と1年後の希望を整理できます。" })
+    ])
+  }),
+  "CAN-F01-Q1dQ8d": Object.freeze({
+    heading: "「整えたい」と「余白が戻っている」は同じ変化か",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "現在の関心では、働き方や暮らしを「整えたい」と答えています。1年後の希望では、心と時間に余白が「戻っている」と答えました。回答時点の「整えたい」という希望と、1年後の「戻っている」という状態が並んでいます。" }),
+      Object.freeze({ type: "p", text: "働き方や暮らしが整ったと感じる場面と、心と時間に余白が戻ったと感じる場面が同じなら、二つは同じ変化を異なる時点から表していた可能性があります。" }),
+      Object.freeze({ type: "p", text: "整ったと感じても、余白が戻ったとは感じない場面が浮かぶなら、二つの言葉には違う基準があります。反対に、余白は戻っていても、まだ整えたいことが残る場面も考えられます。" }),
+      Object.freeze({ type: "p", text: "「整ったが、余白は戻っていない」と「余白は戻ったが、まだ整っていない」のうち、想像しやすい方はあるでしょうか。その場面で何が残っているかを書くと、現在の関心と1年後の希望の違いを確かめられます。" })
+    ])
+  }),
+  "CAN-F18-Q1aQ3a": Object.freeze({
+    heading: "新しい収入への関心と、守りたいものの関係",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "「AIを使って、新しい収入をつくりたい」と考えたとき、お金の状態で選んだ「守りたいものが多く、余白は少ない」という答えも、同じ場面にあったでしょうか。ここでは、二つが同じ関心から生まれていたかを確かめます。" }),
+      Object.freeze({ type: "p", text: "同じ場面が浮かぶなら、その中に「新しい収入について気になったこと」と「守りたいものや余白について考えたこと」が並んでいます。二つが関係していても、どちらかがもう一方の原因だとは限りません。" }),
+      Object.freeze({ type: "p", text: "違う場面が浮かぶ場合もあります。AIや新しい収入は仕事や副業について、守りたいものや余白は暮らしの別の場面について選んだのであれば、二つを一つの課題にまとめる必要はありません。" }),
+      Object.freeze({ type: "p", text: "二つの回答を選んだときの場面を一つずつ書き、共通する出来事、対象、時期があるかを見てください。共通点があれば、二つの関係を考える手がかりになります。見つからなければ、現時点では別々のテーマとして置いておけます。" })
+    ])
+  })
+});
+
+if (Object.keys(CANDIDATE_COMPONENTS_BATCH_4).length !== 8) {
+  throw new Error("CANDIDATE_COMPONENT_BATCH_4_COUNT_MISMATCH");
+}
+
+  return { CANDIDATE_COMPONENTS_BATCH_4 };
+})();
+
+const __production_module_7 = (() => {
+const CANDIDATE_COMPONENTS_BATCH_5 = Object.freeze({
+  "CAN-F18-Q1aQ3d": Object.freeze({
+    heading: "新しい収入への関心と、時間や気力への希望",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "「AIを使って、新しい収入をつくりたい」と「お金より、まず時間と気力がほしい」は、方向の違う回答に見えるかもしれません。ただ、二つは別の質問への答えです。前者は現在気になっていること、後者はお金の状態について最も近い表現として選んだ言葉でした。" }),
+      Object.freeze({ type: "p", text: "同じことを考えながら選んだのであれば、AIや新しい収入への関心と、時間や気力について考えたことが、一つの場面に並んでいます。どちらか一方を消すのではなく、同じ場面にあった二つの関心として見られます。" }),
+      Object.freeze({ type: "p", text: "別々のことを思い浮かべていた場合もあります。AIへの関心は仕事や副業について、時間や気力は日々の暮らしについて選んだ、というように、二つの回答が別の場面を指すこともあります。" }),
+      Object.freeze({ type: "p", text: "AIや新しい収入を考えた場面と、時間や気力がほしいと感じた場面を一つずつ書いてみてください。同じ場面なら、その中に二つの関心がありました。違う場面なら、一つの優先順位にまとめず、別の論点として残せます。" })
+    ])
+  }),
+  "CAN-F18-Q1bQ3a": Object.freeze({
+    heading: "形に残したいことと、「守りたいもの・余白」の関係",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "「形に残したい経験や知識」と、「守りたいものが多く、余白は少ない」と答えたときに思い浮かべたものを、左右に一つずつ書いてみてください。二つの欄を並べると、同じ対象について考えていたかが見えやすくなります。" }),
+      Object.freeze({ type: "p", text: "同じ取り組みや予定が両方に入るなら、形に残すことと、守りたいもの・余白についての回答は関係しています。関係があっても、余白が少ないことが形に残すことを妨げているとは限りません。" }),
+      Object.freeze({ type: "p", text: "左右にまったく違う内容が入るなら、残したい経験や知識は内容についての関心で、お金の回答は暮らしの別の部分について選んだ可能性があります。" }),
+      Object.freeze({ type: "p", text: "共通する対象がある場合は、「形に残すこと」と「守りたいもの・余白」が、その対象の中でどう関係していたかを一文にしてください。共通点がなければ、現時点では別のテーマとして置いておけます。" })
+    ])
+  }),
+  "CAN-F18-Q1bQ3d": Object.freeze({
+    heading: "残したい内容と、ほしい時間や気力は同じ場面か",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "「形に残したいのは、＿＿＿」「そのことについて、ほしい時間や気力は＿＿＿」の二文を埋められるでしょうか。二文目が自然に続くなら、時間や気力を、形に残すことについても考えていた可能性があります。" }),
+      Object.freeze({ type: "p", text: "二文目に言葉が入りにくい場合は、「お金より、まず時間と気力がほしい」を選んだとき、別の場面を思い浮かべていたかを振り返ります。同じ時期に考えていても、回答の対象は別かもしれません。" }),
+      Object.freeze({ type: "p", text: "二つが関係していた場合も、必要な時間の量や、形にできるかどうかは別に考えられます。" }),
+      Object.freeze({ type: "p", text: "最後に、形に残したい内容と、時間や気力を思い浮かべた場面を一つずつ書いてみてください。同じ対象についての言葉か、同じ場面にあった別の言葉かを分けると、関係をより正確に捉えられます。" })
+    ])
+  }),
+  "CAN-F18-Q1cQ3d": Object.freeze({
+    heading: "お金の土台への関心と、「お金より」の答え",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "いま気になっていることでは、お金の不安を減らして土台を固めたいと答えています。一方、お金の状態では、「お金より、まず時間と気力がほしい」を選びました。二つは矛盾ではなく、質問に応じて違う面を答えた可能性があります。" }),
+      Object.freeze({ type: "p", text: "同じ状況を思い浮かべていたなら、お金の土台への関心と、時間や気力について考えたことが一つの場面に並んでいます。二つは同時に成り立つ回答として読むことができます。" }),
+      Object.freeze({ type: "p", text: "別々の状況について答えたことも考えられます。お金の土台は現在気になっていることとして、時間や気力はお金の状態を答えるときに思い浮かべた別の場面について選んだ、といった分かれ方です。" }),
+      Object.freeze({ type: "p", text: "「お金の土台を固めたい」と考えた場面と、「時間と気力がほしい」と感じた場面を並べてください。同じ出来事や予定が入るなら、二つは一つの状況に含まれていました。異なるものが入るなら、それぞれの回答が指す範囲を分けられます。" })
+    ])
+  }),
+  "CAN-F18-Q1dQ3a": Object.freeze({
+    heading: "働き方や暮らしと、「守りたいもの・余白」は同じ話か",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "働き方や暮らしを整えたいという現在の関心と、「守りたいものが多く、余白は少ない」というお金の回答が、一つの生活についてのものかを見ていきます。" }),
+      Object.freeze({ type: "p", text: "同じ生活を思い浮かべていた場合でも、働き方、暮らし、守りたいもの、余白はそれぞれ違う部分を指します。整えたい対象と、守りたいもの・余白について考えた対象がどこで重なるかを分けて見られます。" }),
+      Object.freeze({ type: "p", text: "仕事の進め方や生活時間を考えて現在の関心を選び、予定している支出や暮らしの中で守りたいものを考えてお金の状態を選んだのであれば、二つは同じ暮らしの中にあっても別の論点です。" }),
+      Object.freeze({ type: "p", text: "整えたいことを一つ、守りたいものを一つ書き、その二つが同じ出来事や予定に関係しているかを確かめてみてください。同じなら一つの生活場面にある二つの論点、違うなら別々に考えていた内容として整理できます。" })
+    ])
+  }),
+  "CAN-F18-Q1dQ3d": Object.freeze({
+    heading: "二つの「まず」が指しているもの",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "「まず、いまの働き方や暮らしを整えたい」と「お金より、まず時間と気力がほしい」。二つの回答には「まず」という言葉がありますが、ここから一つの優先順位が決まるわけではありません。" }),
+      Object.freeze({ type: "p", text: "働き方や暮らしを整えることの中に、使える時間や気力について考えることも含めていたなら、二つは近い範囲を指しています。その場合でも、「整える」の対象は時間や気力だけとは限りません。" }),
+      Object.freeze({ type: "p", text: "一方、働き方や暮らしでは仕事の内容や予定を、時間や気力では日常の別の場面を思い浮かべていた可能性もあります。同じ言葉が入っていても、回答した対象が同じとは限りません。" }),
+      Object.freeze({ type: "p", text: "二つの「まず」の後ろにある言葉を、それぞれ自分の具体的な表現へ置き換えてみてください。「働き方や暮らしの○○」と「○○するときの時間や気力」が同じ場面を指すかどうかで、二つの回答の関係を確かめられます。" })
+    ])
+  }),
+  "CAN-F13-Q8bQ6a": Object.freeze({
+    heading: "会社についての答えと、本や発信が資産になる希望",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "会社との距離感では、「不満はあるが、使えるものは使える」を選んでいます。1年後の希望では、「自分の本や発信が、資産になっている」を選びました。現在の会社についての答えと、1年後に本や発信が資産になっていることが関係しているかを見ていきます。" }),
+      Object.freeze({ type: "p", text: "二つを同じ暮らしや仕事の流れで考えていたなら、会社で「使える」と感じたものと、1年後の本や発信への希望の間に、どんな関係を思い浮かべていたでしょうか。具体的な関係が浮かばなければ、同じ暮らしの中にある別の話として置くこともできます。" }),
+      Object.freeze({ type: "p", text: "会社への見方が変わっても、本や発信が資産になることへの希望は変わらないかもしれません。その場合、二つは同じ生活の中にありながら、選んだ理由は別々です。" }),
+      Object.freeze({ type: "p", text: "会社への不満がなくなった場面と、「使えるもの」がなくなった場面を一つずつ想像してください。どちらの場面でも本や発信が資産になることへの希望が変わらないなら、1年後の希望は会社についての答えとは別に残っています。変わるなら、どの部分が関係していたかを書き留められます。" })
+    ])
+  }),
+  "CAN-F13-Q8cQ6a": Object.freeze({
+    heading: "会社への見方と、お金の見通しへの希望",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "1年後に望むのは、お金の不安が減り、見通しが立っている状態です。現在の会社については、「不満はあるが、使えるものは使える」を選んでいます。この二つを関連づけて答えたかは、回答だけではまだ分かりません。" }),
+      Object.freeze({ type: "p", text: "会社について考えた内容が、収入や今後のお金の見方にも関係していたなら、二つの回答にはつながりがあります。ただ、「不満」と「使えるもの」のどちらが関係していたのか、両方だったのかで、その中身は異なります。" }),
+      Object.freeze({ type: "p", text: "お金の見通しは会社への評価と関係なく持っていた希望で、会社についての回答は別の場面を指していた可能性もあります。その場合は、二つを同じ1年後の暮らしに置きながら、別々の内容として考えられます。" }),
+      Object.freeze({ type: "p", text: "会社への不満がなくなったときと、会社で使えると感じるものがなくなったとき。二つの場面で、お金の見通しへの希望が変わるかを比べてみてください。変わらなければ、会社への見方とは別に残る希望である可能性があります。変わるなら、関係していた内容を一文で残せます。" })
+    ])
+  }),
+  "CAN-F13-Q8dQ6a": Object.freeze({
+    heading: "会社についての答えと、心や時間の余白",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "「不満はあるが、使えるものは使える」という会社への現在の答えと、「心と時間に、余白が戻っている」という1年後の希望。会社への見方が、余白の希望にも関係していたかを確かめます。" }),
+      Object.freeze({ type: "p", text: "会社の中で思い浮かべた不満や使えるものが、心や時間の余白への希望と関係していた可能性はあります。その場合は、「不満」と「使えるもの」のどちらを思い浮かべたときに、1年後の余白も意識したのかを分けて考えられます。" }),
+      Object.freeze({ type: "p", text: "会社についての答えとは別に、暮らし全体の希望として余白を選んだことも考えられます。その場合は、会社への不満や評価が変わっても、1年後に望む状態は残ります。" }),
+      Object.freeze({ type: "p", text: "会社への不満がなくなった場面と、会社で「使える」と感じるものがなくなった場面を、一つずつ想像してください。どちらでも心と時間の余白への希望が変わらないなら、その希望は会社についての回答とは別に残る可能性があります。どちらかで感じ方が変わるなら、何が関係していたかを一つ書き留められます。" })
+    ])
+  })
+});
+
+if (Object.keys(CANDIDATE_COMPONENTS_BATCH_5).length !== 9) {
+  throw new Error("CANDIDATE_COMPONENT_BATCH_5_COUNT_MISMATCH");
+}
+
+  return { CANDIDATE_COMPONENTS_BATCH_5 };
+})();
+
+const __production_module_2 = (() => {
+  const { SPEED_PROTOTYPE_COMPONENTS } = __production_module_3;
+  const { CANDIDATE_COMPONENTS_BATCH_2 } = __production_module_4;
+  const { CANDIDATE_COMPONENTS_BATCH_3 } = __production_module_5;
+  const { CANDIDATE_COMPONENTS_BATCH_4 } = __production_module_6;
+  const { CANDIDATE_COMPONENTS_BATCH_5 } = __production_module_7;
+
+const NEW_COMPONENTS_BATCH_1 = Object.freeze({
+  "CAN-F02-Q8b": Object.freeze({
+    heading: "本や発信が「資産になった」と感じる境目",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "1年後に望む状態では、「自分の本や発信が、資産になっている」を選んでいます。ここでいう「資産」が何を指すかによって、望んでいる状態は変わります。" }),
+      Object.freeze({ type: "p", text: "本や発信が形として残っていること自体を、資産と呼ぶ場合があります。自分があとで読み返せること、誰かの参考になること、別の仕事や作品に使えることでは、何を価値とみなすかが異なります。" }),
+      Object.freeze({ type: "p", text: "本や発信を公開したあとも、そこから何かが生まれることまで含めて、資産と考えた可能性もあります。継続して読まれる、相談や反応につながる、収入が生まれるといった状態です。ただし、これらのどこまでを思い浮かべていたかは、回答だけでは決まりません。" }),
+      Object.freeze({ type: "p", text: "「形として残る」「あとで使える」「誰かに届く」「収入や仕事につながる」のうち、どれがあれば「資産になった」と感じるでしょうか。一つに決める必要はありません。必要な条件と、あればうれしい条件を分けると、望んだ状態の境目が見えやすくなります。" })
+    ])
+  }),
+  "CAN-F02-Q8c": Object.freeze({
+    heading: "「不安が減る」と「見通しが立つ」の違い",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "1年後に望む状態では、「お金の不安が減って、見通しが立っている」を選んでいます。この一文には、気持ちの変化と、これからを考えるための見通しが含まれています。" }),
+      Object.freeze({ type: "p", text: "不安が小さくなったと感じても、この先の数字や予定がまだ見えないことはあります。反対に、毎月の収支や必要な金額が見えても、不安がすぐに減るとは限りません。二つが同時に変わる状態を思い浮かべた場合もあれば、別々の変化として選んだ場合もあります。" }),
+      Object.freeze({ type: "p", text: "「見通し」の中身も人によって異なります。来月や今年のお金の流れが分かること、急な支出への備えが分かること、選べる方法とその範囲が分かることでは、確かめたいものが違います。" }),
+      Object.freeze({ type: "p", text: "一年後の場面で、「不安が減った」と感じるために必要なことと、「見通しが立った」と言えるために見えていてほしいことを、一つずつ分けてみてください。同じ答えになれば二つは近い状態です。違う答えなら、望んでいた変化を二つに分けて考えられます。" })
+    ])
+  }),
+  "CAN-F02-Q8d": Object.freeze({
+    heading: "「心と時間に余白が戻った」と感じるとき",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "1年後に望む状態では、「心と時間に、余白が戻っている」を選んでいます。「心の余白」と「時間の余白」は、同じ場面で感じることも、別々に感じることもあります。" }),
+      Object.freeze({ type: "p", text: "予定の入っていない時間が増えても、その間も気がかりなことが残っていれば、心に余白ができたとは感じないかもしれません。反対に、使える時間が大きく変わらなくても、自分で決められる範囲が増えれば、余白が戻ったと感じる場合があります。" }),
+      Object.freeze({ type: "p", text: "「戻る」には、どの状態を基準にしているかという問いもあります。過去の特定の時期と比べていたのか、回答したときに漠然と望ましい状態を思い浮かべたのか、特定の比較対象はなかったのか。どれに近いかで、余白が戻ったと判断する基準が変わります。" }),
+      Object.freeze({ type: "p", text: "時間が空いたこと、予定を自分で決められること、気持ちを別のことに向けられることのうち、どれがあれば余白が戻ったと感じるでしょうか。近いものを一つ選ぶと、1年後に望んだ状態の境目が見えてきます。" })
+    ])
+  }),
+  "CAN-F03-Q3c": Object.freeze({
+    heading: "「少し余剰がある」と「育て方を知りたい」の中身",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "お金の状態では、「少し余剰があり、育て方を知りたい」を選んでいます。ここでは、余剰として考えたお金の範囲と、そのお金の育て方について何を知りたかったのかを分けて見ていきます。" }),
+      Object.freeze({ type: "p", text: "「余剰」が、今月の生活に使わないお金を指す場合もあれば、しばらく使う予定のないお金までを指す場合もあります。金額の大小よりも、どの時期の支出から分けて考えたかで、言葉の範囲が変わります。" }),
+      Object.freeze({ type: "p", text: "「育て方」で求めていたのが、具体的な増やし方なのか、減らしにくい置き方なのか、方法を比べる基準なのかで、知りたい内容は異なります。さらに、数か月の話として考えるか、より長い期間の話として考えるかでも、比べたいものが変わります。" }),
+      Object.freeze({ type: "p", text: "余剰として思い浮かべたお金は、いつまで使う予定がないものだったでしょうか。そして、そのお金について知りたかったのは、「増やし方」「守り方」「方法を比べる基準」のどれに近いでしょうか。二つを組み合わせると、この回答で考えていた範囲が具体的になります。" })
+    ])
+  }),
+  "CAN-F03-Q3d": Object.freeze({
+    heading: "「お金より、まず時間と気力がほしい」で比べたもの",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "お金の状態で「お金より、まず時間と気力がほしい」を選んだとき、どのような場面が浮かんでいたでしょうか。この回答は、期間や実際の行動順序を決めるものではありません。比べた三つの言葉が、自分の中で何を指していたかを見ていきます。" }),
+      Object.freeze({ type: "p", text: "時間には、予定の入っていない時間、使い方を自分で決められる時間、途中で中断されず一つのことに向き合える時間があります。同じ一時間でも、このどれを望んでいたかによって、「ほしい時間」の中身が変わります。" }),
+      Object.freeze({ type: "p", text: "気力についても、何かに取りかかるときの感覚、続けて考えるときの感覚、人とやり取りするときの感覚では、思い浮かべるものが異なります。時間と気力を同じ場面で望んだのか、別々の場面から一つの選択肢を選んだのかも分けられます。" }),
+      Object.freeze({ type: "p", text: "回答したときの場面を一つ思い浮かべ、「そのときほしかったのは、○○できる時間」「気力がほしいと感じたのは、○○するとき」と一文ずつ書いてみてください。二つを一緒にしていたのか、別のものとして思い浮かべていたのかが見えてきます。" })
+    ])
+  }),
+  "CAN-F05-Q4b": Object.freeze({
+    heading: "「内容次第では、できる」の条件",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "顔や声を出したり、発信したりする場面で、扱う題材が変われば答えも変わるでしょうか。「内容次第では、できる」という回答から、まずは「内容」に当たる題材を見ていきます。" }),
+      Object.freeze({ type: "p", text: "たとえば、ある題材ならできると考え、別の題材ではそう考えなかった可能性があります。最初に浮かんだ題材があるなら、その題材の何が「できる」と考える条件になっていたのかを振り返れます。" }),
+      Object.freeze({ type: "p", text: "題材とは別に、伝え方、見せる相手、公開範囲が答えを左右したことも考えられます。同じ題材でも、文章か声か、知っている人か不特定多数かで、感じ方が変わることがあります。これらは「内容」とするのではなく、内容と並んで答えを変える別の条件です。" }),
+      Object.freeze({ type: "p", text: "回答したときの題材を一つ思い浮かべ、同じ題材のまま、伝え方、相手、公開範囲を一つずつ変えてみてください。どこで「できる」から別の答えへ変わるかを見ると、題材の条件と、それ以外の条件を分けられます。" })
+    ])
+  }),
+  "CAN-F05-Q4c": Object.freeze({
+    heading: "顔や声を出すことと、文章を書くことを分ける",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "顔や声を出したり、発信したりすることについては、「できれば避けたい。文章なら書ける」を選んでいます。この一文には、避けたい対象と、文章であれば書けると感じた範囲が並んでいます。" }),
+      Object.freeze({ type: "p", text: "「できれば避けたい」の対象は、顔、声、発信のどれか、または複数かもしれません。顔や声を使わずに発信する場面と、発信せず限られた相手に伝える場面では、同じ答えになるとは限りません。" }),
+      Object.freeze({ type: "p", text: "「文章なら書ける」も、文章力や発信の希望を示す答えではありません。自分だけが見るメモ、限られた相手への文章、公開する文章では、同じ「書く」でも条件が異なります。文章であれば公開したいという意味までは、この回答に含まれていません。" }),
+      Object.freeze({ type: "p", text: "まず、表し方を「顔」「声」「文章」に分けます。次に、見せる範囲を「非公開」「限定した相手」「公開」に分けます。どの表し方を避けたいと感じ、どの範囲を思い浮かべて「文章なら書ける」を選んだでしょうか。二つの軸を分けると、この回答の範囲が見えやすくなります。" })
+    ])
+  }),
+  "CAN-F05-Q4d": Object.freeze({
+    heading: "「静かに」と答えたときの条件",
+    body: Object.freeze([
+      Object.freeze({ type: "p", text: "顔や声を出したり、発信したりすることについては、「静かに積み上げるほうが、性に合う」を選んでいます。ここでは、自分にとっての「静かに」と「積み上げる」の条件を分けて確かめます。" }),
+      Object.freeze({ type: "p", text: "「静かに」が、顔や声を出さないこと、不特定多数へ公開しないこと、反応をすぐに求めないことのどれかで、思い浮かべた場面は異なります。人に見せること自体を避けたいのか、見せる方法を限りたいのかも別の問いです。" }),
+      Object.freeze({ type: "p", text: "「積み上げる」対象も確かめておきたい点です。文章、作品、記録、作業の仕組みなど、何を少しずつ残す場面を思い浮かべたでしょうか。公開する前に蓄えることと、公開しながら続けることでは、同じ対象でも見せ方が異なります。" }),
+      Object.freeze({ type: "p", text: "思い浮かべた対象を一つ決め、「自分だけで蓄える」「限られた相手に見せながら続ける」「公開しながら続ける」の三つを比べてみてください。誰に見せるか、いつ公開するかによって答えが変わるかを見ると、「静かに積み上げる」という回答の範囲が見えやすくなります。" })
+    ])
+  })
+});
+
+const CANDIDATE_COMPONENTS = Object.freeze({
+  ...SPEED_PROTOTYPE_COMPONENTS,
+  ...NEW_COMPONENTS_BATCH_1,
+  ...CANDIDATE_COMPONENTS_BATCH_2,
+  ...CANDIDATE_COMPONENTS_BATCH_3,
+  ...CANDIDATE_COMPONENTS_BATCH_4,
+  ...CANDIDATE_COMPONENTS_BATCH_5
+});
+
+if (Object.keys(CANDIDATE_COMPONENTS).length !== 56) {
+  throw new Error(`CANDIDATE_COMPONENT_COMPLETE_COUNT_MISMATCH:${Object.keys(CANDIDATE_COMPONENTS).length}`);
+}
+
+  return { CANDIDATE_COMPONENTS };
+})();
+
+const __production_module_9 = (() => {
+const INTEGRATION_COMPONENTS_DIRECT_BATCH_1 = Object.freeze({
+  "INTADD-Q3a-Q8a": Object.freeze({
+    bridge: Object.freeze([
+      "「守りたいものが多く、余白は少ない」と「会社以外の収入が動き始めている」は、同じお金の話としてつながっている場合も、別々の話である場合もあります。守りたいものや余白について考えたことと、会社以外の収入への希望が、自分の中で結びついていたかを振り返れます。",
+      "会社以外の収入が生まれた場面を想像しても、守りたいものや余白についての変化が浮かばない場合は、この場面だけでは二つの関係を確認できません。変化が浮かぶ場合は、何がどう変わると考えたのかに注目すると、関係を具体化できます。"
+    ]),
+    check: Object.freeze({
+      title: "守りたいものと、会社以外の収入の関係を確かめる",
+      action: "守りたいものを一つだけ書きます。次に、会社以外の収入が動き始めたとき、その守りたいものについて何が変わりそうかを一文で続けてください。変化が浮かばなければ、「関係はまだ分からない」と書いて構いません。",
+      observe: "具体的な変化が書けたなら、その場面では二つの回答を関連づけていた可能性があります。「関係はまだ分からない」と書いた場合は、無理に一つへまとめず、判断を保留したまま残します。"
+    })
+  }),
+  "INTADD-Q3a-Q8b": Object.freeze({
+    bridge: Object.freeze([
+      "「守りたいものが多く、余白は少ない」という答えと、「自分の本や発信が資産になっている」という希望には、関係がある場合も、ない場合もあります。前者の「守りたいもの」が、本や発信を指していたとは限りません。",
+      "守りたい対象と、自分にとっての「本や発信が資産になっている状態」を別々に言葉にすると、二つの回答をどこまで結びつけていたかを確かめられます。関係が浮かばなければ、その時点では別々の回答として残せます。"
+    ]),
+    check: Object.freeze({
+      title: "守りたい対象と、資産になっている状態を比べる",
+      action: "「守りたいもの」として浮かんだ対象を一つ書きます。次に、「本や発信が資産になっている」とはどのような状態かを、自分の言葉で一文にします。二つに関係があるか、ないか、まだ分からないかを選んでください。",
+      observe: "関係があるなら、どの部分がつながるかを一文にできます。関係がないなら、二つを一つの希望として扱う必要はありません。まだ分からない場合は、判断を保留したまま残します。"
+    })
+  }),
+  "INTADD-Q3a-Q8c": Object.freeze({
+    bridge: Object.freeze([
+      "守りたいものが多く、余白は少ないと感じることと、お金の不安が減って見通しが立つことは、近いようで同じとは限りません。余白が増えることを望んでいたのか、余白が少なくても、守りたいものを守れる見通しを望んでいたのかで、1年後に期待する変化は異なります。",
+      "ここで確かめたいのは、余白そのものと、見通しのどちらが安心につながると考えていたかです。両方が必要な場合もあれば、余白と見通しのどちらか一方が得られると、もう一方への感じ方も変わることがあります。"
+    ]),
+    check: Object.freeze({
+      title: "余白と見通しを別々に想像する",
+      action: "「使えるお金の余白だけが増えた場面」と「余白は同じまま、これからのお金の見通しだけが立った場面」を一つずつ想像します。どちらの方が、1年後に望んだ状態へ近いと感じるかを書いてください。",
+      observe: "片方がはっきり近ければ、自分が重く見ていた変化が分かります。どちらも近い場合は、余白と見通しを別々の条件として残せます。どちらとも決めにくければ、判断に必要な別の条件があるのかもしれません。"
+    })
+  }),
+  "INTADD-Q3a-Q8d": Object.freeze({
+    bridge: Object.freeze([
+      "「守りたいものが多く、余白は少ない」と、1年後に望む「心と時間の余白」は、どちらも「余白」という言葉を使っていますが、同じ感覚を指すとは限りません。一方はお金の状態への答え、もう一方は1年後に望む状態です。",
+      "お金について考えた余白と、心や時間について望んだ余白が、自分の中でどこまでつながっていたかは分けて確かめられます。心や時間に余白が戻っても、守りたいものの守りやすさは変わらない場面と、心や時間の余白と一緒に守りやすさも変わる場面では、望んでいた状態の捉え方が違います。"
+    ]),
+    check: Object.freeze({
+      title: "二つの余白が重なる場面を探す",
+      action: "お金について余白が少ないと感じる場面と、心や時間に余白が戻ったと感じる場面を一つずつ書きます。両方に同じ出来事や予定を書いたかを確かめてください。",
+      observe: "両方に同じ出来事や予定を書いたなら、その場面では二つの余白が関係しています。別の内容になれば、お金の余白と心・時間の余白を別々に考えていた可能性があります。例が浮かばなければ、関係はまだ決めずに残します。"
+    })
+  }),
+  "INTADD-Q3b-Q8a": Object.freeze({
+    bridge: Object.freeze([
+      "お金の状態については、「生活はまわるが、増やし方がわからない」を選んでいます。ここでの「増やす」が会社以外の収入を指していたなら、この回答と1年後の希望は同じ対象を別の角度から表しています。手元に残るお金など、会社以外の収入とは別のものを思い浮かべていたなら、二つは別の話です。"
+    ]),
+    check: Object.freeze({
+      title: "「増やす」が指していたものを言葉にする",
+      action: "「増やし方がわからない」の「増やす」が何を指していたかを、一つだけ書きます。会社以外の収入と同じものなら、何が起きたら「動き始めた」と言えるかを一文で続けます。別のものなら、二つを分けたまま残します。",
+      observe: "同じものを書いた場合は、「増やす」が指す対象と、動き始めたと判断する境目を分けて考えられます。別のものを書いた場合は、二つを無理にまとめる必要はありません。何を指していたかが浮かばない場合は、まだ決めずに残します。"
+    })
+  }),
+  "INTADD-Q3b-Q8b": Object.freeze({
+    bridge: Object.freeze([
+      "「増やし方がわからない」の対象と、「本や発信が資産になっている」の「資産」が同じものとは限りません。「増やす」が収入や手元のお金を指し、「資産」はそれとは別の状態を指していることもあります。",
+      "二つを関連づけていたなら、「増やす」が指す対象と、「資産になっている」と判断する状態を分けると、考えていた関係が明確になります。関連が浮かばなければ、お金についての答えと、本や発信についての希望を別々に置いて構いません。"
+    ]),
+    check: Object.freeze({
+      title: "「増やす」の対象と、「資産」の境目を比べる",
+      action: "「増やす」が指していた対象を一つ書きます。次に、本や発信がどのような状態になれば「資産になっている」と言えるかを一文にします。後者が前者に関係するか、しないか、まだ分からないかを選んでください。",
+      observe: "関係するなら、二つがどうつながるのかを一文にできます。関係しないなら、別々の問いとして残します。まだ分からない場合は、「資産」の境目が具体的になってから、あらためて比べられます。"
+    })
+  })
+});
+
+if (Object.keys(INTEGRATION_COMPONENTS_DIRECT_BATCH_1).length !== 6) {
+  throw new Error("INTEGRATION_COMPONENT_DIRECT_BATCH_1_COUNT_MISMATCH");
+}
+
+  return { INTEGRATION_COMPONENTS_DIRECT_BATCH_1 };
+})();
+
+const __production_module_10 = (() => {
+const INTEGRATION_COMPONENTS_DIRECT_BATCH_2 = Object.freeze({
+  "INTADD-Q3b-Q8c": Object.freeze({
+    bridge: Object.freeze([
+      "「生活はまわるが、増やし方がわからない」と、「お金の不安が減って、見通しが立っている」は、どちらもお金についての回答です。ただし、「増やし方が分かること」と「見通しが立つこと」を同じことだと考えていたとは限りません。",
+      "増やす方法が分かれば見通しも立つと考えていた場合もあれば、毎月のお金の流れや必要な備えが変わることを、見通しが立つ条件として考えていた場合もあります。前者で知りたいことと、後者で起きていてほしいことを分けると、二つの回答が重なる部分を見つけやすくなります。"
+    ]),
+    check: Object.freeze({
+      title: "「増やし方」と「見通し」の関係を確かめる",
+      action: "「増やし方」について知りたいことを一つ書きます。次に、何が起きていれば「見通しが立った」と言えるかを一文にします。前者が後者に関係するか、しないか、まだ分からないかを選んでください。",
+      observe: "関係するなら、どの部分がつながるかを一文にできます。関係しないなら二つの論点として残し、まだ分からない場合は判断を保留します。"
+    })
+  }),
+  "INTADD-Q3c-Q8a": Object.freeze({
+    bridge: Object.freeze([
+      "「少し余剰があり、育て方を知りたい」と「会社以外の収入が動き始めている」は、お金を増やす方法についての同じ希望に見えることもあります。一方で、今あるお金の扱いと、これから生まれる収入の経路を、別々に考えていた可能性もあります。",
+      "ここで分けたいのは、余剰を「育てる」とは何をすることか、会社以外の収入が生まれたら、その扱いも同じ考えに含めるかという二点です。二つを分けると、今あるお金と、これから入るお金を同じ対象としていたかを確かめられます。"
+    ]),
+    check: Object.freeze({
+      title: "新しく入るお金も、同じ「育て方」の対象か",
+      action: "余剰を「育てる」とは何をすることかを、一文で書きます。次に、会社以外の収入が生まれた場合、そのお金も同じ扱いの対象になるかを、「なる」「ならない」「まだ分からない」から選んでください。",
+      observe: "「なる」なら、今ある余剰と新しく入るお金を、同じ扱いの対象として考えられます。「ならない」なら、二つは別の役割を持つお金です。「まだ分からない」場合は、関係を決めずに残します。"
+    })
+  }),
+  "INTADD-Q3c-Q8c": Object.freeze({
+    bridge: Object.freeze([
+      "「少し余剰があり、育て方を知りたい」と、「お金の不安が減って、見通しが立っている」は、今あるお金についての考えと、1年後に望む状態です。余剰の育て方が分かることを、見通しの一部として考えていた場合もあります。",
+      "一方で、見通しが立つために知りたいのは、余剰の扱いではなく、毎月のお金の流れや必要な備えかもしれません。余剰の育て方が分かっても不安が変わらない場面を想像すると、二つが同じ課題かどうかを確かめられます。"
+    ]),
+    check: Object.freeze({
+      title: "育て方が分かった後の変化を想像する",
+      action: "余剰の育て方が分かったものの、収入や支出は今と変わらない場面を想像します。そのとき、お金の不安や見通しについて何が変わり、何が変わらないかを一つずつ書いてください。",
+      observe: "不安や見通しにも変化があるなら、二つの回答は関係していた可能性があります。変わらない点が残るなら、ほかに必要な条件があるのか、その育て方について追加で確かめたいことがあるのかは、この時点では決めません。"
+    })
+  }),
+  "INTADD-Q3d-Q8a": Object.freeze({
+    bridge: Object.freeze([
+      "「お金より、まず時間と気力がほしい」と「会社以外の収入が動き始めている」は、現在の状況への答えと1年後の希望です。時間や気力を、会社以外の収入について考えるために望んでいた場合もあれば、まったく別の場面について答えた場合もあります。",
+      "ここで確かめられるのは、二つを同じ場面で考えていたか、別々の希望として考えていたかまでです。"
+    ]),
+    check: Object.freeze({
+      title: "時間や気力がほしかった場面を確かめる",
+      action: "時間や気力がほしいと感じた場面を一つ書きます。その場面で、会社以外の収入についても考えていたかを、「考えていた」「別のことを考えていた」「覚えていない」から選んでください。",
+      observe: "「考えていた」なら、その場面には二つの関心がありました。「別のことを考えていた」なら、現在の希望と1年後の希望を別々に置けます。「覚えていない」場合は、関係を決めずに残します。"
+    })
+  }),
+  "INTADD-Q3d-Q8c": Object.freeze({
+    bridge: Object.freeze([
+      "「お金より、まず時間と気力がほしい」と答えながら、1年後には「お金の不安が減って、見通しが立っている」状態を望んでいます。この二つは矛盾ではありません。回答した問いと、思い浮かべた時点が異なります。",
+      "時間や気力に余裕ができたら、お金の見通しについて考えようとしていた場合もあれば、現在ほしいものと1年後に望む状態を別々に選んだ場合もあります。どちらかを本当の希望と決めず、二つの場面に共通する条件があるかを確かめられます。"
+    ]),
+    check: Object.freeze({
+      title: "時間・気力と、お金の見通しに共通する条件を探す",
+      action: "「時間や気力がほしい」と感じる場面と、「お金の見通しが立った」と言える場面を一つずつ書きます。共通する条件があるかを確かめてください。",
+      observe: "共通する条件があれば、その条件を通じて二つの回答が関係していた可能性があります。共通点が見つからなければ、この確認だけでは関係を決めません。"
+    })
+  }),
+  "INTADD-Q3d-Q8d": Object.freeze({
+    bridge: Object.freeze([
+      "「お金より、まず時間と気力がほしい」と、1年後に望む「心と時間の余白」は、近い内容を含んでいます。ただし、回答したときに同じ状態を思い浮かべていたかは分かりません。",
+      "今ほしい時間や気力は、特定の場面を乗り切るためのものかもしれません。1年後の余白は、予定を自分で決められる状態や、気がかりを減らした暮らしを指しているかもしれません。二つが重なる部分と、別に残る部分を分けると、望んでいた変化が具体的になります。"
+    ]),
+    check: Object.freeze({
+      title: "今ほしいものと、1年後の余白を比べる",
+      action: "「今、時間や気力がほしい」と感じる場面と、「1年後、心と時間に余白がある」と感じる場面を一つずつ書きます。二つの場面に共通することと、違うことを一つずつ挙げてください。",
+      observe: "共通点があれば、二つの回答が重なる範囲を捉えられます。違う点があれば、今ほしいものと1年後に望む状態を、すべて同じ意味にまとめずに考えられます。"
+    })
+  })
+});
+
+if (Object.keys(INTEGRATION_COMPONENTS_DIRECT_BATCH_2).length !== 6) {
+  throw new Error("INTEGRATION_COMPONENT_DIRECT_BATCH_2_COUNT_MISMATCH");
+}
+
+  return { INTEGRATION_COMPONENTS_DIRECT_BATCH_2 };
+})();
+
+const __production_module_11 = (() => {
+const INTEGRATION_COMPONENTS_CURRENT_CONTEXT_BATCH_1 = Object.freeze({
+  "INTREL-Q2a-Q5a-CURRENT-CONTEXT": Object.freeze({
+    bridge: Object.freeze(["「平日も動ける。気力もある」と答えた場面と、「まず出して、走りながら直す」という進め方を思い浮かべた場面は、同じだったでしょうか。平日に使えると考えた時間を、何かを出して直すことに使うつもりだったとは限りません。二つが同じ題材についての回答かどうかを確かめると、現在の状況と進め方を混同せずに読めます。"]),
+    check: Object.freeze({
+      title: "平日の余力と、思い浮かべた進め方を分ける",
+      action: "平日に時間や気力を使えそうだと考えたことと、「まず出して直す」ときに思い浮かべたことを一つずつ書きます。同じ題材か、別の題材かを確かめてください。具体的な題材が浮かばなければ、「題材なし」と書きます。",
+      observe: "同じ題材なら、二つの回答に共通する対象があります。別の題材なら、それぞれの対象についての答えとして残せます。「題材なし」の場合は、二つの関係を決めません。"
+    })
+  }),
+  "INTREL-Q2a-Q5b-CURRENT-CONTEXT": Object.freeze({
+    bridge: Object.freeze(["平日にも時間や気力があると感じることと、「小さく試してから、広げる」という進め方を選ぶことは、別の問いへの答えです。平日の時間を小さな試みに使うつもりだった場合もあれば、進め方は過去の別の経験をもとに選んだ場合もあります。"]),
+    check: Object.freeze({
+      title: "「平日」と「小さく試す」で浮かんだ題材を比べる",
+      action: "平日に取り組めそうだと感じた題材と、小さく試すときに思い浮かべた題材を一つずつ書きます。同じ題材か、別の題材かを選んでください。具体的な題材が浮かばなければ、「題材なし」と書きます。",
+      observe: "同じ題材なら、二つの回答に共通する対象があります。別の題材なら、現在の時間の感覚と、自分が選んだ進め方を別々の情報として扱えます。「題材なし」の場合は、関係を決めません。"
+    })
+  }),
+  "INTREL-Q2a-Q5c-CURRENT-CONTEXT": Object.freeze({
+    bridge: Object.freeze(["「平日も動ける。気力もある」という現在の感覚と、「ある程度、設計してから動く」という進め方が、同じ予定についての回答かを確かめます。時間や気力があることは、設計が済んでいることや、すぐに始められることを意味しません。"]),
+    check: Object.freeze({
+      title: "使えそうな時間と、設計したい対象を並べる",
+      action: "平日に時間を使えそうだと思ったことと、動く前に設計しておきたいと思ったことを一つずつ書きます。同じ題材か、別の題材かを選んでください。具体的な題材が浮かばなければ、「題材なし」と書きます。",
+      observe: "同じ題材なら、二つの回答に共通する対象があります。別の題材なら、それぞれの対象についての答えとして残せます。「題材なし」の場合は、設計や着手について新しい結論を出しません。"
+    })
+  }),
+  "INTREL-Q2a-Q5d-CURRENT-CONTEXT": Object.freeze({
+    bridge: Object.freeze(["平日にも時間や気力があると感じていても、何かを出す前には納得いくまで整えたいと考えることはあります。一方で、二つの回答では別の題材を思い浮かべていた可能性もあります。「余力があるから、すぐ動ける」と一つにまとめず、場面を分けて見ていきます。"]),
+    check: Object.freeze({
+      title: "平日に考えたことと、整えたいものを比べる",
+      action: "平日に時間や気力を使えそうだと思った題材と、納得いくまで整えてから出したいと思った題材を一つずつ書きます。同じか別かを確かめてください。具体的な題材が浮かばなければ、「題材なし」と書きます。",
+      observe: "同じ題材なら、二つの回答に共通する対象があります。別の題材なら、それぞれの対象についての答えとして残せます。「題材なし」の場合は、関係を決めません。"
+    })
+  }),
+  "INTREL-Q2b-Q5a-CURRENT-CONTEXT": Object.freeze({
+    bridge: Object.freeze(["「週末なら、まとまって取れる」と答えた時間が、「まず出して、走りながら直す」場面に使う時間だったとは限りません。週末に思い浮かべた予定と、出して直す進め方を選んだときの題材が同じかを確かめると、時間の取り方と進め方を混同せずに整理できます。"]),
+    check: Object.freeze({
+      title: "週末の時間と、「まず出す」場面を照らし合わせる",
+      action: "週末のまとまった時間で思い浮かべたことと、「まず出す」ときに思い浮かべたものを一つずつ書きます。同じ題材か、別の題材かを選んでください。具体的な題材が浮かばなければ、「題材なし」と書きます。",
+      observe: "同じ題材なら、二つの回答に共通する対象があります。別の題材なら、時間の回答と進め方の回答を分けたままにします。「題材なし」の場合は、関係を決めません。"
+    })
+  }),
+  "INTREL-Q2b-Q5b-CURRENT-CONTEXT": Object.freeze({
+    bridge: Object.freeze(["週末にまとまった時間が取れるという答えと、小さく試してから広げるという答えを並べると、週末に小さく試す計画のように見えるかもしれません。しかし、二つの回答は、同じ題材や予定についてのものとは限りません。"]),
+    check: Object.freeze({
+      title: "週末の予定と、小さく試す題材を分ける",
+      action: "週末の時間で想像したことと、小さく試すときに想像したことを一つずつ書きます。同じ題材か、別の題材かを選んでください。具体的な題材が浮かばなければ、「題材なし」と書きます。",
+      observe: "同じ題材なら、二つの回答に共通する対象があります。別の題材なら、別々のものとして残します。「題材なし」の場合は、関係を決めません。"
+    })
+  }),
+  "INTREL-Q2b-Q5c-CURRENT-CONTEXT": Object.freeze({
+    bridge: Object.freeze(["週末にまとまった時間を取れることと、動く前にある程度設計したいことは、同じ活動に関する回答かもしれません。ただ、週末に思い浮かべたことと、設計してから動きたいと考えたことが、同じ題材だったとは限りません。"]),
+    check: Object.freeze({
+      title: "週末の時間と、設計したい題材を比べる",
+      action: "週末に思い浮かべた題材と、設計してから動きたいと思った題材を一つずつ書きます。同じ題材か、別の題材かを選んでください。具体的な題材が浮かばなければ、「題材なし」と書きます。",
+      observe: "同じ題材なら、二つの回答に共通する対象があります。別の題材なら、使える時間と好みの進め方を、別々の題材についての答えとして残せます。「題材なし」の場合は、関係を決めません。"
+    })
+  }),
+  "INTREL-Q2b-Q5d-CURRENT-CONTEXT": Object.freeze({
+    bridge: Object.freeze(["「週末にまとまった時間を取れる」という答えと、「納得いくまで整えてから出したい」という答えは、同じ題材を思い浮かべて選んだ可能性があります。ただし、まとまった時間があれば納得いくまで整えられる、という意味ではありません。"]),
+    check: Object.freeze({
+      title: "週末の時間と、整えたい対象の関係を見る",
+      action: "週末の時間でやろうと考えた題材と、出す前に整えたいと思った題材を一つずつ書きます。同じ題材か、別の題材かを選んでください。具体的な題材が浮かばなければ、「題材なし」と書きます。",
+      observe: "同じ題材なら、二つの回答に共通する対象があります。別の題材なら、週末の時間と、納得してから出したいという進め方を結びつけずに残します。「題材なし」の場合は、関係を決めません。"
+    })
+  })
+});
+
+if (Object.keys(INTEGRATION_COMPONENTS_CURRENT_CONTEXT_BATCH_1).length !== 8) {
+  throw new Error("INTEGRATION_COMPONENT_CURRENT_CONTEXT_BATCH_1_COUNT_MISMATCH");
+}
+
+  return { INTEGRATION_COMPONENTS_CURRENT_CONTEXT_BATCH_1 };
+})();
+
+const __production_module_12 = (() => {
+const INTEGRATION_COMPONENTS_CURRENT_CONTEXT_BATCH_2 = Object.freeze({
+  "INTREL-Q2c-Q5a-CURRENT-CONTEXT": Object.freeze({
+    bridge: Object.freeze(["すきま時間が少しだけあるという答えと、「まず出して、走りながら直す」という進め方を、同じ題材について選んだとは限りません。すきま時間で何かを出せるという意味でもありません。二つの回答で何を思い浮かべたかを分けて確かめます。"]),
+    check: Object.freeze({
+      title: "すきま時間と、「まず出す」場面を分ける",
+      action: "すきま時間について答えたときに浮かんだ題材と、「まず出す」ときに浮かんだ題材を一つずつ書きます。同じ題材か、別の題材かを選んでください。具体的な題材が浮かばなければ、「題材なし」と書きます。",
+      observe: "同じ題材なら、二つの回答に共通する対象があります。別の題材なら、それぞれの対象についての答えとして残せます。「題材なし」の場合は、関係を決めません。"
+    })
+  }),
+  "INTREL-Q2c-Q5b-CURRENT-CONTEXT": Object.freeze({
+    bridge: Object.freeze(["「すきま時間が、少しだけ」と「小さく試してから、広げる」は、どちらも、少ない・小さいという印象を与える言葉です。ただし、「少しだけ」は現在の時間についての答えで、「小さく」は進め方についての答えです。同じ意味としてまとめず、それぞれの回答で浮かんだ題材を確かめます。"]),
+    check: Object.freeze({
+      title: "「少しだけ」と「小さく」で浮かんだ題材を比べる",
+      action: "すきま時間について答えたときに浮かんだ題材と、小さく試すときに浮かんだ題材を一つずつ書きます。同じ題材か、別の題材かを選んでください。具体的な題材が浮かばなければ、「題材なし」と書きます。",
+      observe: "同じ題材でも、現在使える時間と、自分が選んだ進め方は別の情報です。別の題材なら、二つの言葉が似ていても別々の回答として残せます。「題材なし」の場合は、関係を決めません。"
+    })
+  }),
+  "INTREL-Q2c-Q5c-CURRENT-CONTEXT": Object.freeze({
+    bridge: Object.freeze(["すきま時間が少しだけあるという現在の感覚と、ある程度設計してから動くという進め方を並べても、すきま時間を設計に使うつもりだったとは限りません。すきま時間について何を思い浮かべたかと、何を設計したいと考えたかを分けて振り返ります。"]),
+    check: Object.freeze({
+      title: "すきま時間と、設計したいことを照らし合わせる",
+      action: "すきま時間について答えたときに浮かんだ題材と、動く前に設計したいと思った題材を一つずつ書きます。同じ題材か、別の題材かを選んでください。具体的な題材が浮かばなければ、「題材なし」と書きます。",
+      observe: "同じ題材なら、二つの回答に共通する対象があります。別の題材なら、使える時間の感覚と進め方の好みを別々の情報として残せます。「題材なし」の場合は、関係を決めません。"
+    })
+  }),
+  "INTREL-Q2c-Q5d-CURRENT-CONTEXT": Object.freeze({
+    bridge: Object.freeze(["すきま時間が少しだけあると感じることと、納得いくまで整えてから出したいと考えることは、同時に成り立つ場合があります。ただし、二つの回答だけでは、時間が足りないとも、何かを出せないとも言えません。思い浮かべた題材が同じかを確かめます。"]),
+    check: Object.freeze({
+      title: "すきま時間で考えた題材と、整えたい題材を比べる",
+      action: "すきま時間について答えたときに浮かんだ題材と、納得いくまで整えたいと思った題材を一つずつ書きます。同じ題材か、別の題材かを選んでください。具体的な題材が浮かばなければ、「題材なし」と書きます。",
+      observe: "同じ題材なら、二つの回答に共通する対象があります。別の題材なら、二つを一つの問題にまとめずに残せます。「題材なし」の場合は、関係を決めません。"
+    })
+  }),
+  "INTREL-Q2d-Q5a-CURRENT-CONTEXT": Object.freeze({
+    bridge: Object.freeze(["「正直、いまは余裕がない」は回答した時点の余裕についての答えです。「まず出して、走りながら直す」は、何かを始めるときの進め方について選んだ言葉です。二つの回答だけでは、今すぐ出せるかどうかは分かりません。"]),
+    check: Object.freeze({
+      title: "今の余裕と、進め方を選んだ場面を分ける",
+      action: "余裕がないと感じたときに浮かんだ題材と、「まず出して直す」ときに浮かんだ題材を一つずつ書きます。同じ題材か、別の題材かを選んでください。具体的な題材が浮かばなければ、「題材なし」と書きます。",
+      observe: "同じ題材なら、二つの回答に共通する対象があります。別の題材なら、それぞれの対象についての答えとして残せます。「題材なし」の場合は、関係を決めません。"
+    })
+  }),
+  "INTREL-Q2d-Q5b-CURRENT-CONTEXT": Object.freeze({
+    bridge: Object.freeze(["今は余裕がないという答えと、小さく試してから広げるという答えを組み合わせても、「今なら小さく試せる」という結論にはなりません。二つの回答で、同じ題材を思い浮かべていたかを確かめます。"]),
+    check: Object.freeze({
+      title: "余裕の回答と、「小さく試す」の題材を比べる",
+      action: "余裕がないと感じたときに浮かんだ題材と、小さく試すときに浮かんだ題材を一つずつ書きます。同じ題材か、別の題材かを選んでください。具体的な題材が浮かばなければ、「題材なし」と書きます。",
+      observe: "同じ題材なら、二つの回答に共通する対象があります。別の題材なら、余裕についての答えを、試し方や行動量へ結びつけずに残します。「題材なし」の場合は、関係を決めません。"
+    })
+  }),
+  "INTREL-Q2d-Q5c-CURRENT-CONTEXT": Object.freeze({
+    bridge: Object.freeze(["今は余裕がないと感じていることと、ある程度設計してから動くという進め方は、同じ理由から選ばれたとは限りません。余裕がないから設計が必要だったとも、設計ができれば動けるとも決めず、二つの回答で何を思い浮かべたかを分けて見ます。"]),
+    check: Object.freeze({
+      title: "余裕がない場面と、設計したい題材を並べる",
+      action: "余裕がないと感じたときに浮かんだ題材と、動く前に設計したいと思った題材を一つずつ書きます。同じ題材か、別の題材かを選んでください。具体的な題材が浮かばなければ、「題材なし」と書きます。",
+      observe: "同じ題材なら、二つの回答に共通する対象があります。別の題材なら、それぞれの対象についての答えとして残せます。「題材なし」の場合は、設計や着手について新しい結論を出しません。"
+    })
+  }),
+  "INTREL-Q2d-Q5d-CURRENT-CONTEXT": Object.freeze({
+    bridge: Object.freeze(["「いまは余裕がない」と「納得いくまで整えてから出したい」を組み合わせると、すぐには出せないように見えるかもしれません。しかし、一方は現在の状況、もう一方は何かを出す前の進め方についての答えです。何が原因か、行動できるかは決めず、同じ題材を思い浮かべたかを確かめます。"]),
+    check: Object.freeze({
+      title: "現在の状況と、出す前の基準を分ける",
+      action: "余裕がないと感じたときに浮かんだ題材と、納得いくまで整えたいと思った題材を一つずつ書きます。同じ題材か、別の題材かを選んでください。具体的な題材が浮かばなければ、「題材なし」と書きます。",
+      observe: "同じ題材なら、二つの回答に共通する対象があります。別の題材なら、余裕についての答えから、整え方や完成の基準を読み取りません。「題材なし」の場合は、関係を決めません。"
+    })
+  })
+});
+
+if (Object.keys(INTEGRATION_COMPONENTS_CURRENT_CONTEXT_BATCH_2).length !== 8) {
+  throw new Error("INTEGRATION_COMPONENT_CURRENT_CONTEXT_BATCH_2_COUNT_MISMATCH");
+}
+
+  return { INTEGRATION_COMPONENTS_CURRENT_CONTEXT_BATCH_2 };
+})();
+
+const __production_module_13 = (() => {
+const INTEGRATION_COMPONENTS_SCENE_CONTEXT = Object.freeze({
+  "INTREL-Q2a-Q3d-SCENE-CONTEXT": Object.freeze({
+    bridge: Object.freeze([
+      "「平日も動ける。気力もある」は回答した時点の時間や気力についての答えです。「お金より、まず時間と気力がほしい」は、お金の状態について選んだ言葉で、どの時期を思い浮かべたかは分かりません。二つを矛盾と捉えず、同じ時期について答えたかを確かめます。"
+    ]),
+    check: Object.freeze({
+      title: "二つの回答で思い浮かべた時期を比べる",
+      action: "平日に動けると考えた時期と、時間や気力がほしいと感じた時期を一つずつ書きます。同じ時期か、別の時期か、覚えていないかを選んでください。",
+      observe: "同じ時期なら、その時期には、「平日に動ける」と「時間や気力がほしい」の両方を感じていました。別の時期なら、それぞれの時期についての答えとして残せます。覚えていない場合は、二つの関係を決めません。"
+    })
+  }),
+  "INTREL-Q2b-Q3d-SCENE-CONTEXT": Object.freeze({
+    bridge: Object.freeze([
+      "週末ならまとまった時間が取れることと、「お金より、まず時間と気力がほしい」と感じることは、同時に成り立つ場合があります。一方は週末についての答えで、もう一方は、どの時期を思い浮かべたか分からない答えです。同じ時間や場面を指していたとは限りません。"
+    ]),
+    check: Object.freeze({
+      title: "週末の時間と、ほしかった時間を比べる",
+      action: "週末に取れると考えた時間と、「ほしい」と感じた時間を、それぞれ曜日と時間帯で書きます。同じ曜日・時間帯か、別の曜日・時間帯か、具体的には浮かばないかを選んでください。",
+      observe: "同じ曜日・時間帯でも、取れる時間と、ほしい時間が同じ意味とは限りません。別の曜日・時間帯なら、二つを別の場面についての答えとして残します。具体的に浮かばない場合は、比較を保留します。"
+    })
+  }),
+  "INTREL-Q2c-Q3d-SCENE-CONTEXT": Object.freeze({
+    bridge: Object.freeze([
+      "すきま時間が少しだけあるという答えと、時間や気力がほしいという答えを並べると、時間が足りないという一つの話に見えるかもしれません。ただし、「少しだけ」と答えた場面と、「ほしい」と感じた場面が同じだったかは分かりません。"
+    ]),
+    check: Object.freeze({
+      title: "すきま時間と、時間や気力がほしかった場面を分ける",
+      action: "すきま時間として思い浮かべた場面と、時間や気力がほしいと感じた場面を一つずつ書きます。同じ場面か、別の場面か、具体的には浮かばないかを選んでください。",
+      observe: "同じ場面なら、二つの回答がその場面に関係していました。別の場面なら、二つを一つの不足としてまとめずに残します。具体的に浮かばない場合は、比較を保留します。"
+    })
+  }),
+  "INTREL-Q2d-Q3d-SCENE-CONTEXT": Object.freeze({
+    bridge: Object.freeze([
+      "「正直、いまは余裕がない」と「お金より、まず時間と気力がほしい」は近い言葉に見えますが、前者は回答した時点の余裕についての答えで、後者はお金の状態についての答えです。後者で思い浮かべた時期は分かりません。二つの回答で同じ時期を思い浮かべていたかは、回答だけでは分かりません。"
+    ]),
+    check: Object.freeze({
+      title: "「いま」と、時間や気力を望んだ時期を比べる",
+      action: "余裕がないと感じた「いま」がどの期間を指していたかを書きます。次に、時間や気力がほしいと考えた時期を一つ書き、同じ時期か、別の時期か、まだ分からないかを選んでください。",
+      observe: "同じ時期なら、二つとも、その時期について答えていた可能性があります。別の時期なら、それぞれの時期についての答えとして残します。まだ分からない場合は、同じ状態だと決めません。"
+    })
+  })
+});
+
+if (Object.keys(INTEGRATION_COMPONENTS_SCENE_CONTEXT).length !== 4) {
+  throw new Error("INTEGRATION_COMPONENT_SCENE_CONTEXT_COUNT_MISMATCH");
+}
+
+  return { INTEGRATION_COMPONENTS_SCENE_CONTEXT };
+})();
+
+const __production_module_14 = (() => {
+const OPTIONS = Object.freeze(["a", "b", "c", "d"]);
+
+const DIRECT_HOLD_KEYS = new Set([
+  "Q3b|Q8d",
+  "Q3c|Q8b",
+  "Q3c|Q8d",
+  "Q3d|Q8b"
+]);
+
+const DIRECT_REVISE_KEYS = new Set([
+  "Q3a|Q8b",
+  "Q3a|Q8d",
+  "Q3b|Q8b",
+  "Q3d|Q8c",
+  "Q3d|Q8d"
+]);
+
+const CORE_INTEGRATION_RELATIONS = Object.freeze(
+  OPTIONS.flatMap((q1) => OPTIONS.map((q8) => Object.freeze({
+    relationId: `INTCORE-Q1${q1}-Q8${q8}`,
+    requiredAnswerIds: Object.freeze([`Q1${q1}`, `Q8${q8}`]),
+    anchorCandidateIds: Object.freeze([`CAN-F01-Q1${q1}Q8${q8}`, `CAN-F02-Q8${q8}`]),
+    relationTag: "REL_TIME_AXIS",
+    centerInsight: "INS_CURRENT_FUTURE",
+    scope: "full_rollout_core_relation",
+    contentComponentId: `CAN-F01-Q1${q1}Q8${q8}`,
+    contentStatus: "candidate_component_audited"
+  })))
+);
+
+const DIRECT_SECONDARY_INTEGRATION_RELATIONS = Object.freeze(
+  OPTIONS.flatMap((q3) => OPTIONS.map((q8) => {
+    const answerKey = `Q3${q3}|Q8${q8}`;
+    if (DIRECT_HOLD_KEYS.has(answerKey)) return null;
+    return Object.freeze({
+      relationId: `INTADD-Q3${q3}-Q8${q8}`,
+      requiredAnswerIds: Object.freeze([`Q3${q3}`, `Q8${q8}`]),
+      anchorCandidateIds: Object.freeze([`CAN-F03-Q3${q3}`, `CAN-F02-Q8${q8}`]),
+      relationTag: "REL_HOPE_CONDITION",
+      centerInsight: "INS_HOPE_CONDITION",
+      scope: "exact_q3_q8_relation_when_selected_pairs_below_two",
+      relationshipAuditStatus: DIRECT_REVISE_KEYS.has(answerKey)
+        ? "definition_revised"
+        : "relationship_accepted",
+      contentComponentId: `INTADD-Q3${q3}-Q8${q8}`,
+      contentStatus: "component_audited"
+    });
+  })).filter(Boolean)
+);
+
+const Q2_Q5_APPLICABILITY_KEYS = Object.freeze([
+  "Q3b|Q8d",
+  "Q3c|Q8b",
+  "Q3c|Q8d"
+]);
+
+const CURRENT_CONTEXT_FALLBACK_RELATIONS = Object.freeze(
+  OPTIONS.flatMap((q2) => OPTIONS.map((q5) => Object.freeze({
+    relationId: `INTREL-Q2${q2}-Q5${q5}-CURRENT-CONTEXT`,
+    requiredAnswerIds: Object.freeze([`Q2${q2}`, `Q5${q5}`]),
+    anchorCandidateIds: Object.freeze([`CAN-F04-Q2${q2}`, `CAN-F06-Q5${q5}`]),
+    applicabilityKeys: Q2_Q5_APPLICABILITY_KEYS,
+    relationTag: "REL_ROLE_POSITION",
+    centerInsight: "INS_ROLE_PLACEMENT",
+    scope: "exact_fallback_for_three_held_q3_q8_groups",
+    relationshipAuditStatus: "relationship_accepted",
+    contentComponentId: `INTREL-Q2${q2}-Q5${q5}-CURRENT-CONTEXT`,
+    contentStatus: "component_audited"
+  })))
+);
+
+const SCENE_CONTEXT_FALLBACK_RELATIONS = Object.freeze(
+  OPTIONS.map((q2) => Object.freeze({
+    relationId: `INTREL-Q2${q2}-Q3d-SCENE-CONTEXT`,
+    requiredAnswerIds: Object.freeze([`Q2${q2}`, "Q3d", "Q8b"]),
+    anchorCandidateIds: Object.freeze([`CAN-F04-Q2${q2}`, "CAN-F03-Q3d"]),
+    applicabilityKeys: Object.freeze(["Q3d|Q8b"]),
+    relationTag: "REL_ROLE_POSITION",
+    centerInsight: "INS_ROLE_PLACEMENT",
+    scope: "exact_fallback_for_q3d_q8b",
+    relationshipAuditStatus: "relationship_accepted",
+    contentComponentId: `INTREL-Q2${q2}-Q3d-SCENE-CONTEXT`,
+    contentStatus: "component_audited"
+  }))
+);
+
+const SECONDARY_INTEGRATION_RELATIONS = Object.freeze([
+  ...DIRECT_SECONDARY_INTEGRATION_RELATIONS,
+  ...CURRENT_CONTEXT_FALLBACK_RELATIONS,
+  ...SCENE_CONTEXT_FALLBACK_RELATIONS
+]);
+
+const REPORT_INTEGRATION_RELATIONS = Object.freeze([
+  ...CORE_INTEGRATION_RELATIONS,
+  ...SECONDARY_INTEGRATION_RELATIONS
+]);
+
+if (CORE_INTEGRATION_RELATIONS.length !== 16) throw new Error("CORE_INTEGRATION_COUNT_MISMATCH");
+if (DIRECT_SECONDARY_INTEGRATION_RELATIONS.length !== 12) throw new Error("DIRECT_SECONDARY_COUNT_MISMATCH");
+if (CURRENT_CONTEXT_FALLBACK_RELATIONS.length !== 16) throw new Error("CURRENT_CONTEXT_FALLBACK_COUNT_MISMATCH");
+if (SCENE_CONTEXT_FALLBACK_RELATIONS.length !== 4) throw new Error("SCENE_CONTEXT_FALLBACK_COUNT_MISMATCH");
+if (SECONDARY_INTEGRATION_RELATIONS.length !== 32) throw new Error("SECONDARY_INTEGRATION_COUNT_MISMATCH");
+if (new Set(REPORT_INTEGRATION_RELATIONS.map(({ relationId }) => relationId)).size !== 48) {
+  throw new Error("REPORT_INTEGRATION_ID_DUPLICATE");
+}
+
+const REPORT_INTEGRATION_BY_ID = new Map(
+  REPORT_INTEGRATION_RELATIONS.map((relation) => [relation.relationId, relation])
+);
+
+  return { CORE_INTEGRATION_RELATIONS, DIRECT_SECONDARY_INTEGRATION_RELATIONS, CURRENT_CONTEXT_FALLBACK_RELATIONS, SCENE_CONTEXT_FALLBACK_RELATIONS, SECONDARY_INTEGRATION_RELATIONS, REPORT_INTEGRATION_RELATIONS, REPORT_INTEGRATION_BY_ID };
+})();
+
+const __production_module_8 = (() => {
+  const { INTEGRATION_COMPONENTS_DIRECT_BATCH_1 } = __production_module_9;
+  const { INTEGRATION_COMPONENTS_DIRECT_BATCH_2 } = __production_module_10;
+  const { INTEGRATION_COMPONENTS_CURRENT_CONTEXT_BATCH_1 } = __production_module_11;
+  const { INTEGRATION_COMPONENTS_CURRENT_CONTEXT_BATCH_2 } = __production_module_12;
+  const { INTEGRATION_COMPONENTS_SCENE_CONTEXT } = __production_module_13;
+  const { SECONDARY_INTEGRATION_RELATIONS } = __production_module_14;
+
+const INTEGRATION_COMPONENTS = Object.freeze({
+  ...INTEGRATION_COMPONENTS_DIRECT_BATCH_1,
+  ...INTEGRATION_COMPONENTS_DIRECT_BATCH_2,
+  ...INTEGRATION_COMPONENTS_CURRENT_CONTEXT_BATCH_1,
+  ...INTEGRATION_COMPONENTS_CURRENT_CONTEXT_BATCH_2,
+  ...INTEGRATION_COMPONENTS_SCENE_CONTEXT
+});
+
+const componentIds = Object.keys(INTEGRATION_COMPONENTS).sort();
+const relationIds = SECONDARY_INTEGRATION_RELATIONS.map(({ relationId }) => relationId).sort();
+
+if (componentIds.length !== 32) {
+  throw new Error(`INTEGRATION_COMPONENT_COUNT_MISMATCH:${componentIds.length}`);
+}
+if (JSON.stringify(componentIds) !== JSON.stringify(relationIds)) {
+  throw new Error("INTEGRATION_COMPONENT_RELATION_ID_MISMATCH");
+}
+
+for (const component of Object.values(INTEGRATION_COMPONENTS)) {
+  if (!Array.isArray(component.bridge) || component.bridge.length < 1) {
+    throw new Error("INTEGRATION_COMPONENT_BRIDGE_MISSING");
+  }
+  if (!component.check?.title || !component.check?.action || !component.check?.observe) {
+    throw new Error("INTEGRATION_COMPONENT_CHECK_MISSING");
+  }
+}
+
+  return { INTEGRATION_COMPONENTS };
+})();
+
+const __production_module_15 = (() => {
+const question = (label, options) => Object.freeze({
+  label,
+  options: Object.freeze(Object.fromEntries(
+    Object.entries(options).map(([key, text]) => [key, Object.freeze({ question: label, text })])
+  ))
+});
+
+const REPORT_ANSWER_CATALOG = Object.freeze({
+  Q1: question("いま、いちばん気になっていること", {
+    a: "AIを使って、新しい収入をつくりたい",
+    b: "自分の経験や知識を、かたちに残したい",
+    c: "お金の不安を減らして、土台を固めたい",
+    d: "まず、いまの働き方や暮らしを整えたい"
+  }),
+  Q2: question("いま自由に使える時間と体力", {
+    a: "平日も動ける。気力もある",
+    b: "週末なら、まとまって取れる",
+    c: "すきま時間が、少しだけ",
+    d: "正直、いまは余裕がない"
+  }),
+  Q3: question("お金の状態", {
+    a: "守りたいものが多く、余白は少ない",
+    b: "生活はまわるが、増やし方がわからない",
+    c: "少し余剰があり、育て方を知りたい",
+    d: "お金より、まず時間と気力がほしい"
+  }),
+  Q4: question("顔や声を出したり、発信したりすること", {
+    a: "苦にならない。むしろ好き",
+    b: "内容次第では、できる",
+    c: "できれば避けたい。文章なら書ける",
+    d: "静かに積み上げるほうが、性に合う"
+  }),
+  Q5: question("何かを始めるときの進め方", {
+    a: "まず出して、走りながら直す",
+    b: "小さく試してから、広げる",
+    c: "ある程度、設計してから動く",
+    d: "納得いくまで整えてから出したい"
+  }),
+  Q6: question("いまの会社との距離感", {
+    a: "不満はあるが、使えるものは使える",
+    b: "まあまあ。可もなく不可もなく",
+    c: "少し消耗している自覚がある",
+    d: "正直、かなりしんどい"
+  }),
+  Q7: question("いま手元にある、いちばんの持ち味", {
+    a: "とりあえず動ける、行動力",
+    b: "語れる経験・専門性",
+    c: "コツコツ管理する力",
+    d: "周りへの気配りと、我慢強さ"
+  }),
+  Q8: question("1年後に望む状態", {
+    a: "会社以外の収入が、動き始めている",
+    b: "自分の本や発信が、資産になっている",
+    c: "お金の不安が減って、見通しが立っている",
+    d: "心と時間に、余白が戻っている"
+  })
+});
+
+function answerRecord(answerId) {
+  const match = /^(Q[1-8])([a-d])$/u.exec(answerId);
+  if (!match) throw new Error(`INVALID_ANSWER_ID:${answerId}`);
+  const answer = REPORT_ANSWER_CATALOG[match[1]].options[match[2]];
+  if (!answer) throw new Error(`UNKNOWN_ANSWER_ID:${answerId}`);
+  return answer;
+}
+
+  return { REPORT_ANSWER_CATALOG, answerRecord };
+})();
+
+const __production_module_0 = (() => {
+  const { STRUCTURAL_CANDIDATES } = __production_module_1;
+  const { CANDIDATE_COMPONENTS } = __production_module_2;
+  const { INTEGRATION_COMPONENTS } = __production_module_8;
+  const { REPORT_INTEGRATION_BY_ID } = __production_module_14;
+  const { answerRecord } = __production_module_15;
+
+const QUESTION_COUNT = 8;
+const SECTION_COUNT = 6;
+
+const CORE_SUMMARIES = Object.freeze({
+  "INTCORE-Q1a-Q8a": "AIを使うことと会社以外の収入は、AIを収入づくりの手段として考えていたなら一つの話です。AIそのものへの関心と、収入源を増やす希望を別々に考えていたなら、二つを分ける方が今の考えに近い整理になります。",
+  "INTCORE-Q1a-Q8b": "AIによる新しい収入と、本や発信が資産になっていることは、本や発信をAIや収入と結びつけて考えていた場合に重なります。AIで収入をつくることと、本や発信を資産にすることを別々に思い浮かべていたなら、二つは別の希望として整理できます。",
+  "INTCORE-Q1a-Q8c": "新しい収入が生まれることと、お金の不安が減って見通しが立つことは、近いようで、同じ基準とは限りません。新しい収入を見通しの一部として考えていたのか、二つを別の変化として考えていたのかが、二つの回答の関係を確かめる手がかりです。",
+  "INTCORE-Q1a-Q8d": "新しい収入への関心と、心や時間の余白が戻ることは、同じ変化として考えていた場合も、別々の希望として考えていた場合もあります。二つを思い浮かべた場面が同じだったかを振り返ると、回答同士の関係を整理できます。",
+  "INTCORE-Q1b-Q8a": "経験や知識を形に残すことと、会社以外の収入が動き始めることは、残したものを収入につながるものとして考えていた場合に重なります。形に残すこと自体を望んでいたなら、収入の希望とは別の話として整理できます。",
+  "INTCORE-Q1b-Q8b": "経験や知識を形に残すことと、本や発信が資産になっていることは、形にしたいものとして本や発信を思い浮かべていたならつながります。ただし、形に残したい対象と、どの状態を資産と呼ぶのかは、別々に確かめる必要があります。",
+  "INTCORE-Q1b-Q8c": "経験や知識を形に残すことが、お金の見通しにつながると考えていたなら、二つの回答には関係があります。形に残したいものと、お金について見通しを立てたいことが別なら、それぞれを別の関心として扱えます。",
+  "INTCORE-Q1b-Q8d": "経験や知識を形に残すことと、心や時間の余白が戻ることを同じ暮らしの中で望んでいたなら、二つの回答には関係があります。それぞれを別の変化として考えていたなら、二つは分けて整理できます。",
+  "INTCORE-Q1c-Q8a": "お金の土台と会社以外の収入は、収入が動き始めることを土台の変化の目印として考えていた場合につながります。会社以外の収入が生まれても土台は変わらないと感じるなら、二つには別の基準があります。",
+  "INTCORE-Q1c-Q8b": "お金の土台と、本や発信が資産になっていることは、本や発信が資産になることをお金の土台と結びつけて考えていた場合につながります。二つを別々の状態として望んでいたなら、同じ目標にまとめなくても構いません。",
+  "INTCORE-Q1c-Q8c": "お金の土台が固まることと、不安が減って見通しが立つことは近い一方で、同じ基準とは限りません。回答したとき、土台が固まることと見通しが立つことを同じ状態として考えていたかが、二つの関係を確かめる手がかりです。",
+  "INTCORE-Q1c-Q8d": "お金の土台と、心や時間の余白は、同じ変化として考えていた場合も、別々の状態として望んでいた場合もあります。土台と余白が同じ場面で変わると考えていたかを振り返ると、二つの回答の関係を整理できます。",
+  "INTCORE-Q1d-Q8a": "働き方や暮らしを整えることと、会社以外の収入が動き始めることは、収入源の変化を暮らしの一部として考えていた場合につながります。会社以外の収入がなくても整ったと感じるなら、二つは同じ希望とは限りません。",
+  "INTCORE-Q1d-Q8b": "働き方や暮らしが整った状態に、本や発信が資産になっていることを含めていたなら、二つの回答はつながります。暮らしが整うことと、本や発信が資産になることを別々に思い浮かべていたなら、同じ計画にまとめなくても構いません。",
+  "INTCORE-Q1d-Q8c": "働き方や暮らしが整うことと、お金の見通しが立つことは、互いに関係していても、同じ基準とは限りません。お金の見通しを暮らしが整うための一部として考えていたのか、それぞれ別の変化を望んでいたのかが、二つの回答を分ける点です。",
+  "INTCORE-Q1d-Q8d": "働き方や暮らしが整うことと、心や時間の余白が戻ることは近い変化に見えます。ただ、整ったと感じる基準と、余白が戻ったと感じる基準が同じかどうかは、場面を分けて確かめる必要があります。"
+});
+
+function combinations(items, chooseCount) {
+  const result = [];
+  const chosen = [];
+  function visit(startIndex) {
+    if (chosen.length === chooseCount) {
+      result.push([...chosen]);
+      return;
+    }
+    const lastStart = items.length - (chooseCount - chosen.length);
+    for (let index = startIndex; index <= lastStart; index += 1) {
+      chosen.push(items[index]);
+      visit(index + 1);
+      chosen.pop();
+    }
+  }
+  visit(0);
+  return result;
+}
+
+function questionNumber(answerId) {
+  return Number(answerId[1]);
+}
+
+function selectionMetrics(candidateSet) {
+  const counts = new Map();
+  for (const candidate of candidateSet) {
+    for (const answerId of candidate.requiredAnswerIds) {
+      const number = questionNumber(answerId);
+      counts.set(number, (counts.get(number) ?? 0) + 1);
+    }
+  }
+  return {
+    qualityVector: candidateSet.map(({ qualityPriority }) => qualityPriority).sort((a, b) => a - b),
+    questionCoverage: counts.size,
+    maxQuestionUse: Math.max(...counts.values()),
+    candidateIdVector: candidateSet.map(({ candidateId }) => candidateId).sort()
+  };
+}
+
+function compareVectors(left, right) {
+  for (let index = 0; index < left.length; index += 1) {
+    if (left[index] < right[index]) return -1;
+    if (left[index] > right[index]) return 1;
+  }
+  return 0;
+}
+
+function compareSets(left, right) {
+  const quality = compareVectors(left.metrics.qualityVector, right.metrics.qualityVector);
+  if (quality !== 0) return quality;
+  if (left.metrics.questionCoverage !== right.metrics.questionCoverage) {
+    return right.metrics.questionCoverage - left.metrics.questionCoverage;
+  }
+  if (left.metrics.maxQuestionUse !== right.metrics.maxQuestionUse) {
+    return left.metrics.maxQuestionUse - right.metrics.maxQuestionUse;
+  }
+  return compareVectors(left.metrics.candidateIdVector, right.metrics.candidateIdVector);
+}
+
+function selectSix(answerIds) {
+  const answerSet = new Set(answerIds);
+  const eligible = STRUCTURAL_CANDIDATES.filter((candidate) =>
+    candidate.requiredAnswerIds.every((answerId) => answerSet.has(answerId))
+      && candidate.forbiddenAnswerIds.every((answerId) => !answerSet.has(answerId)));
+  const valid = combinations(eligible, SECTION_COUNT)
+    .filter((set) => new Set(set.map(({ centerInsight }) => centerInsight)).size === SECTION_COUNT)
+    .map((set) => ({ set, metrics: selectionMetrics(set) }))
+    .sort(compareSets);
+  if (!valid[0]) throw new Error(`NO_VALID_SIX:${answerIds.join("|")}`);
+  return valid[0].set
+    .sort((left, right) => left.displayRank - right.displayRank
+      || left.candidateId.localeCompare(right.candidateId, "en"));
+}
+
+function additionalRelationId(answerIds, selectedSix) {
+  const selectedPairCount = selectedSix.filter(({ requiredAnswerIds }) => requiredAnswerIds.length >= 2).length;
+  if (selectedPairCount >= 2) return null;
+  const [q1, q2, q3, q4, q5, q6, q7, q8] = answerIds;
+  void q1; void q4; void q6; void q7;
+  const pair = `${q3}|${q8}`;
+  if (["Q3b|Q8d", "Q3c|Q8b", "Q3c|Q8d"].includes(pair)) {
+    return `INTREL-${q2}-${q5}-CURRENT-CONTEXT`;
+  }
+  if (pair === "Q3d|Q8b") return `INTREL-${q2}-Q3d-SCENE-CONTEXT`;
+  return `INTADD-${q3}-${q8}`;
+}
+
+function validateAnswerIds(answerIds) {
+  if (!Array.isArray(answerIds) || answerIds.length !== QUESTION_COUNT) {
+    throw new Error("ANSWER_COUNT_MISMATCH");
+  }
+  answerIds.forEach((answerId, index) => {
+    if (!new RegExp(`^Q${index + 1}[a-d]$`, "u").test(answerId)) {
+      throw new Error(`ANSWER_ORDER_MISMATCH:${answerId}`);
+    }
+  });
+}
+
+function makeIntroduction(answerIds) {
+  const current = answerRecord(answerIds[0]).text;
+  const future = answerRecord(answerIds[7]).text;
+  return Object.freeze([
+    "何かを変えたいと思ったとき、時間、お金、会社との距離、表現の仕方などが一度に頭へ浮かぶと、自分が何に迷っているのか分かりにくくなることがあります。今回の回答を別々の角度から見直すことで、一緒に考えていたことと、分けて考えた方がよいことを整理できます。",
+    `今回、いま気になっていることとして選んだのは「${current}」。1年後に望む状態として選んだのは「${future}」でした。現在の関心と将来の希望は、同じ方向を指す場合もあれば、関係のある別々の望みである場合もあります。`,
+    "ここからは、8つの回答の中にある言葉を6つの観点から見直します。自分に近いと感じる部分は、考えを言葉にする手がかりにしてください。少し違うと感じた部分も、自分ならどう表すかを考える材料になります。",
+    "読み終えたあとに残したいのは、タイプ名や決められた正解ではありません。これから何かを選ぶときに、自分が確かめたい条件や、別々に考えたい論点が一つでも見つかれば、このレポートを判断の材料として使えます。"
+  ]);
+}
+
+function makeCoreCheck(answerIds) {
+  const current = answerRecord(answerIds[0]).text;
+  const future = answerRecord(answerIds[7]).text;
+  return Object.freeze({
+    title: "最近の一場面で、今の関心と1年後の希望を見直す",
+    action: `最近、これからの働き方や暮らしについて考えた場面を一つ思い浮かべます。その場面で「${current}」と「${future}」のどちらを考えていたかを、「両方」「前者だけ」「後者だけ」「どちらでもない」から選んでください。`,
+    observe: "「両方」なら、その場面には二つの考えがありました。片方だけなら、その場面で意識していたのは一方です。「どちらでもない」場合や場面が浮かばない場合は、今回の確認だけで二つの関係を決めません。"
+  });
+}
+
+function makeClosing(coreRelationId, extraComponent) {
+  const summary = CORE_SUMMARIES[coreRelationId];
+  if (!summary) throw new Error(`CORE_SUMMARY_MISSING:${coreRelationId}`);
+  if (extraComponent) {
+    return Object.freeze([
+      summary,
+      "本文では、ほかの回答同士が同じ場面や同じ対象を指していたかも分けて考えました。最後に二つの確認を順番に行い、自分の考えに近い見方を確かめてみてください。"
+    ]);
+  }
+  return Object.freeze([
+    summary,
+    "最後に、最近の一場面を振り返り、二つの言葉を自分の中でどのように考えていたかを確かめてみてください。"
+  ]);
+}
+
+function resolveCompleteReport(answerIds) {
+  validateAnswerIds(answerIds);
+  const selectedSix = selectSix(answerIds);
+  const orderedSixIds = selectedSix.map(({ candidateId }) => candidateId);
+  const q1 = answerIds[0];
+  const q8 = answerIds[7];
+  const coreRelationId = `INTCORE-${q1}-${q8}`;
+  const coreRelation = REPORT_INTEGRATION_BY_ID.get(coreRelationId);
+  if (!coreRelation) throw new Error(`CORE_RELATION_MISSING:${coreRelationId}`);
+  const extraRelationId = additionalRelationId(answerIds, selectedSix);
+  const extraRelation = extraRelationId ? REPORT_INTEGRATION_BY_ID.get(extraRelationId) : null;
+  const extraComponent = extraRelationId ? INTEGRATION_COMPONENTS[extraRelationId] : null;
+  if (extraRelationId && (!extraRelation || !extraComponent)) {
+    throw new Error(`ADDITIONAL_RELATION_CONTENT_MISSING:${extraRelationId}`);
+  }
+
+  return Object.freeze({
+    canonicalAnswerKey: answerIds.join("|"),
+    answerIds: Object.freeze([...answerIds]),
+    orderedSixIds: Object.freeze(orderedSixIds),
+    relationIds: Object.freeze([coreRelationId, ...(extraRelationId ? [extraRelationId] : [])]),
+    packageStatus: "complete_component_assembled_unreleased",
+    introduction: makeIntroduction(answerIds),
+    answers: Object.freeze(answerIds.map(answerRecord)),
+    integratedBridge: Object.freeze(extraComponent?.bridge ?? []),
+    sections: Object.freeze(orderedSixIds.map((candidateId) => {
+      const section = CANDIDATE_COMPONENTS[candidateId];
+      if (!section) throw new Error(`CANDIDATE_CONTENT_MISSING:${candidateId}`);
+      return section;
+    })),
+    closingHeading: "今回の回答から見えてきたこと",
+    closing: makeClosing(coreRelationId, extraComponent),
+    checks: Object.freeze([makeCoreCheck(answerIds), ...(extraComponent ? [extraComponent.check] : [])]),
+    closingTail: "ここまで読んでくださって、ありがとうございました。気になった部分は、あとで見返せるように残しておいてください。同じ場面で考えていたことと、別々に考えていたことを分ける視点が、これから働き方やお金について考える助けになれば、うれしく思います。",
+    disclaimer: ""
+  });
+}
+
+  return { resolveCompleteReport };
+})();
+
+const { resolveCompleteReport } = __production_module_0;
+    const REPORT_TITLE = "スマートFIRE 自己理解レポート";
+    const COMMON_BONUSES = Object.freeze([
+      Object.freeze({ title: "0から10万円を作る、最初の元手づくりガイド", description: "会社員のまま選択肢を増やすための、お金の準備についてまとめた資料です。" }),
+      Object.freeze({ title: "人事を10年やってわかった、会社員の副業リスク点検シート", description: "副業を始める前に、会社員として確認しておきたい点をまとめた資料です。" }),
+      Object.freeze({ title: "毎日増えるお金の正体", description: "「毎日増える」という言葉を見るときに、確認しておきたい点をまとめた資料です。" })
+    ]);
+
+    function formatReportHtml(text) {
+      return String(text)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function toAnswerIds(answerIndexes) {
+      const optionIds = "abcd";
+      return answerIndexes.map((answerIndex, questionIndex) =>
+        `Q${questionIndex + 1}${optionIds[answerIndex]}`);
+    }
+
+    /* =====================================================================
+       ここから下が「文言データ」です。
+       文章を差し替えるときは、この data ブロックの中だけを編集してください。
+       （"" や「」の中の文字だけを書き換えれば、コードは触らなくて大丈夫です）
+       ===================================================================== */
+
+    // ---- 画面の基本文言 -------------------------------------------------
+    const copy = {
+      title: "8つの回答から、今の考えを整理します。",
+      catch: "回答同士のつながりから、自分の考えを別の角度で見直す診断です。",
+      sub: "性格や能力、進むべき道を決めるものではありません。今の自分を考える材料としてお使いください。",
+      assure: ["約3分", "スマホで完結", "個人情報は不要"],
+      greeting: "",
+      startButton: "診断をはじめる"
+    };
+
+    // ---- 8つの質問と採点 -------------------------------------------------
+    const questions = [
+      {
+        text: "いま、いちばん気になっていることは？",
+        hint: "直感で選んでください",
+        options: [
+          { label: "AIを使って、新しい収入をつくりたい", scores: { routeA: 2 } },
+          { label: "自分の経験や知識を、かたちに残したい", scores: { routeB: 2 } },
+          { label: "お金の不安を減らして、土台を固めたい", scores: { routeC: 2 } },
+          { label: "まず、いまの働き方や暮らしを整えたい", scores: { routeD: 2, axisCompany: -1 } }
+        ]
+      },
+      {
+        text: "いま自由に使える時間と体力は？",
+        hint: "見栄を張らず、正直に",
+        options: [
+          { label: "平日も動ける。気力もある", scores: { axisAct: 2, axisCompany: 1 } },
+          { label: "週末なら、まとまって取れる", scores: { axisAct: 1 } },
+          { label: "すきま時間が、少しだけ", scores: { axisAct: -1 } },
+          { label: "正直、いまは余裕がない", scores: { axisCompany: -2, routeD: 1 } }
+        ]
+      },
+      {
+        text: "お金の状態にいちばん近いのは？",
+        hint: "どれも悪いことではありません",
+        options: [
+          { label: "守りたいものが多く、余白は少ない", scores: { axisRisk: -2, routeC: 1 } },
+          { label: "生活はまわるが、増やし方がわからない", scores: { axisRisk: -1, routeC: 1 } },
+          { label: "少し余剰があり、育て方を知りたい", scores: { axisRisk: 2, routeC: 1 } },
+          { label: "お金より、まず時間と気力がほしい", scores: { axisCompany: -1, routeD: 1 } }
+        ]
+      },
+      {
+        text: "人前に出す（顔・声・発信）のは？",
+        hint: "向き不向きの話で、優劣ではありません",
+        options: [
+          { label: "苦にならない。むしろ好き", scores: { axisComm: 2 } },
+          { label: "内容次第では、できる", scores: { axisComm: 1 } },
+          { label: "できれば避けたい。文章なら書ける", scores: { axisComm: -1, routeB: 1 } },
+          { label: "静かに積み上げるほうが、性に合う", scores: { axisComm: -2, routeB: 1 } }
+        ]
+      },
+      {
+        text: "何かを始めるとき、あなたは？",
+        hint: "どちらが正解でもありません",
+        options: [
+          { label: "まず出して、走りながら直す", scores: { axisAct: 2 } },
+          { label: "小さく試してから、広げる", scores: { axisAct: 1 } },
+          { label: "ある程度、設計してから動く", scores: { axisAct: -1 } },
+          { label: "納得いくまで整えてから出したい", scores: { axisAct: -2 } }
+        ]
+      },
+      {
+        text: "いまの会社との距離感は？",
+        hint: "ここは特に正直に",
+        options: [
+          { label: "不満はあるが、使えるものは使える", scores: { axisCompany: 2 } },
+          { label: "まあまあ。可もなく不可もなく", scores: { axisCompany: 1 } },
+          { label: "少し消耗している自覚がある", scores: { axisCompany: -1 } },
+          { label: "正直、かなりしんどい", scores: { axisCompany: -2, routeD: 1 } }
+        ]
+      },
+      {
+        text: "いま手元にある、いちばんの持ち味は？",
+        hint: "小さくてかまいません",
+        options: [
+          { label: "とりあえず動ける、行動力", scores: { axisAct: 1, routeA: 1 } },
+          { label: "語れる経験・専門性", scores: { routeB: 1, axisComm: -1 } },
+          { label: "コツコツ管理する力", scores: { routeC: 1, axisAct: -1 } },
+          { label: "周りへの気配りと、我慢強さ", scores: { routeD: 1, axisCompany: -1 } }
+        ]
+      },
+      {
+        text: "1年後、どうなっていたい？",
+        hint: "いちばん近いものを",
+        options: [
+          { label: "会社以外の収入が、動き始めている", scores: { axisRisk: 2, routeA: 1 } },
+          { label: "自分の本や発信が、資産になっている", scores: { routeB: 1, axisComm: -1 } },
+          { label: "お金の不安が減って、見通しが立っている", scores: { axisRisk: -1, routeC: 1 } },
+          { label: "心と時間に、余白が戻っている", scores: { axisCompany: -1, routeD: 1 } }
+        ]
+      }
+    ];
+
+    /* ---------------------------------------------------------------------
+       画面の制御
+       --------------------------------------------------------------------- */
+    const screenIntro = document.getElementById("screen-intro");
+    const screenQuiz = document.getElementById("screen-quiz");
+    const screenResult = document.getElementById("screen-result");
+    const qCard = document.getElementById("q-card");
+    const progressCount = document.getElementById("progress-count");
+    const progressFill = document.getElementById("progress-fill");
+    const backButton = document.getElementById("back-button");
+
+    let currentIndex = 0;
+    let answers = [];
+    let isTransitioning = false;
+    let transitionTimerId = null;
+
+    function showScreen(screen) {
+      [screenIntro, screenQuiz, screenResult].forEach((el) => el.classList.add("is-hidden"));
+      screen.classList.remove("is-hidden");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function renderIntro() {
+      document.getElementById("intro-title").textContent = copy.title;
+      document.getElementById("intro-catch").textContent = copy.catch;
+      document.getElementById("intro-sub").textContent = copy.sub;
+      document.getElementById("intro-assure").innerHTML =
+        copy.assure.map((item) => `<li>${item}</li>`).join("");
+      const greetingEl = document.getElementById("intro-greeting");
+      if (copy.greeting) {
+        greetingEl.textContent = copy.greeting;
+        greetingEl.style.display = "";
+      } else {
+        greetingEl.style.display = "none";
+      }
+      document.getElementById("start-button").textContent = copy.startButton;
+    }
+
+    function renderQuestion() {
+      isTransitioning = false;
+      const question = questions[currentIndex];
+      progressCount.textContent = `${currentIndex + 1} / ${questions.length}`;
+      progressFill.style.width = `${(currentIndex / questions.length) * 100}%`;
+      backButton.style.visibility = currentIndex === 0 ? "hidden" : "visible";
+
+      const optionsHtml = question.options.map((option, optionIndex) => {
+        const selected = answers[currentIndex] === optionIndex ? " is-selected" : "";
+        return `<button type="button" class="q-option${selected}" data-option="${optionIndex}">${option.label}</button>`;
+      }).join("");
+
+      qCard.innerHTML = `
+        <p class="q-text">Q${currentIndex + 1}｜${question.text}</p>
+        <p class="q-hint">${question.hint}</p>
+        <div class="q-options">${optionsHtml}</div>
+      `;
+
+      qCard.classList.remove("q-card");
+      void qCard.offsetWidth; // アニメーションを毎回再生させるための再計算
+      qCard.classList.add("q-card");
+
+      qCard.querySelectorAll(".q-option").forEach((button) => {
+        button.addEventListener("click", () => {
+          if (isTransitioning) return;
+          isTransitioning = true;
+          qCard.querySelectorAll(".q-option").forEach((b) => {
+            b.disabled = true;
+          });
+          answers[currentIndex] = Number(button.dataset.option);
+          qCard.querySelectorAll(".q-option").forEach((b) => b.classList.remove("is-selected"));
+          button.classList.add("is-selected");
+          transitionTimerId = window.setTimeout(() => {
+            transitionTimerId = null;
+            if (currentIndex < questions.length - 1) {
+              currentIndex += 1;
+              renderQuestion();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            } else {
+              showResult();
+            }
+          }, 240);
+        });
+      });
+    }
+
+    let currentReport = null;
+
+    function renderCommonBonus() {
+      const items = COMMON_BONUSES.map((item, index) => `
+        <li class="bonus-item">
+          <span class="bonus-number">${index + 1}</span>
+          <div>
+            <h4>${item.title}</h4>
+            <p>${item.description}</p>
+          </div>
+        </li>
+      `).join("");
+      document.getElementById("cta-box").innerHTML = `
+        <h3>これから届く3つの特典</h3>
+        <p>ここから先は、メルマガ読者向け特典のご案内です。ご登録の翌日から、3つの資料を1日ずつお届けします。</p>
+        <ol class="bonus-list">${items}</ol>
+        <p class="bonus-foundation-note">この3つは、AIやKindle出版などの副業を始める前に、生活を崩さずに動くための土台です。</p>
+        <section class="bonus-followup" aria-labelledby="ai-kindle-followup">
+          <h4 id="ai-kindle-followup">4日後からは<span class="bonus-followup-title">「AI×Kindle」へ</span></h4>
+          <p>ご登録の4日後からは、件名の先頭に【AI×Kindle】と入ったメールを、11通お届けします。</p>
+          <p>会社員の私が、顔も声も出さず、Kindle出版を軸に副業収入を月7桁まで育てる中で学んだことを、テーマ選び、AIとの役割分担、出版後の本棚づくりまで、順番にお話しします。</p>
+          <p>一度に読む必要はありません。届いた順に、1通ずつ読んでみてください。</p>
+        </section>
+        <p class="delivery-note">メールが見当たらないときは、迷惑メールフォルダやプロモーションフォルダもご確認ください。</p>
+      `;
+    }
+
+    function renderCompleteReport(report) {
+      const answerItems = report.answers
+        .map((answer) => `
+          <li>
+            <span class="answer-question">${answer.question}</span>
+            <span class="answer-choice">${answer.text}</span>
+          </li>
+        `)
+        .join("");
+      const renderBodyBlock = (block) => block.type === "label"
+        ? `<p class="reflection-label">${formatReportHtml(block.text)}</p>`
+        : `<p>${formatReportHtml(block.text)}</p>`;
+      const detailSections = report.sections.map((section, index) => `
+        <section class="detail-section">
+          <span class="eyebrow">観点 ${String(index + 1).padStart(2, "0")}</span>
+          <h3>${section.heading}</h3>
+          ${section.body.map(renderBodyBlock).join("")}
+        </section>
+      `).join("");
+      const checkCards = report.checks.map((check) => `
+        <article class="report-check-card">
+          <h4>${check.title}</h4>
+          <p><span class="report-check-label">やること</span><br>${formatReportHtml(check.action)}</p>
+          <p><span class="report-check-label">あとで見ること</span><br>${formatReportHtml(check.observe)}</p>
+        </article>
+      `).join("");
+      const integratedBridge = report.integratedBridge.length
+        ? `<div class="report-bridge">${report.integratedBridge
+            .map((paragraph) => `<p>${formatReportHtml(paragraph)}</p>`)
+            .join("")}</div>`
+        : "";
+
+      document.getElementById("golden-report").innerHTML = `
+        <section class="r-section">
+          <span class="eyebrow">YOUR ANSWERS</span>
+          <h3>今回選んだ8つの回答</h3>
+          <ol class="answer-summary-list">${answerItems}</ol>
+        </section>
+
+        <section class="r-section">
+          <span class="eyebrow">SELF-REFLECTION</span>
+          <h3>6つの観点から考えてみる</h3>
+          ${integratedBridge}
+          ${detailSections}
+        </section>
+
+        <section class="report-conclusion">
+          <span class="eyebrow">REPORT COMPLETE</span>
+          <h3>${report.closingHeading}</h3>
+          ${report.closing.map((paragraph) => `<p>${formatReportHtml(paragraph)}</p>`).join("")}
+          <div class="report-check-list">${checkCards}</div>
+          <p>${formatReportHtml(report.closingTail)}</p>
+        </section>
+      `;
+
+      document.getElementById("golden-title").innerHTML = REPORT_TITLE
+        .split(/\s+/)
+        .map((segment) => `<span class="title-segment">${segment}</span>`)
+        .join(" ");
+      document.getElementById("golden-introduction").innerHTML = report.introduction
+        .map((paragraph) => `<p>${formatReportHtml(paragraph)}</p>`)
+        .join("");
+      const disclaimerElement = document.getElementById("result-disclaimer");
+      const disclaimerBox = disclaimerElement.closest(".diagnosis-complete");
+      if (report.disclaimer) {
+        disclaimerElement.textContent = report.disclaimer;
+        disclaimerBox.style.display = "";
+      } else {
+        disclaimerElement.textContent = "";
+        disclaimerBox.style.display = "none";
+      }
+      renderCommonBonus();
+    }
+
+    function showResult() {
+      const goldenShell = document.getElementById("golden-result-shell");
+
+      goldenShell.classList.remove("is-hidden");
+
+      document.getElementById("bonus-section").classList.remove("is-hidden");
+
+      currentReport = resolveCompleteReport(toAnswerIds(answers));
+      renderCompleteReport(currentReport);
+
+      document.getElementById("copy-feedback").textContent = "";
+      showScreen(screenResult);
+      screenResult.classList.add("fade-in");
+      document.getElementById("golden-title").focus({ preventScroll: true });
+    }
+
+    function buildCopyText() {
+      if (!currentReport) return "";
+      const sectionText = currentReport.sections.flatMap((section) => [
+          `【${section.heading}】`,
+          "",
+          ...section.body.flatMap((block) => [
+            block.type === "label" ? `＜${block.text}＞` : block.text,
+            ""
+          ])
+        ]);
+
+        return [
+          "【スマートFIRE自己理解レポート】",
+          ...currentReport.introduction.flatMap((paragraph) => [paragraph, ""]),
+          "【今回選んだ8つの回答】",
+          ...currentReport.answers.map((answer) => `・${answer.question}：${answer.text}`),
+          "",
+          ...currentReport.integratedBridge.flatMap((paragraph) => [paragraph, ""]),
+          ...sectionText,
+          `【${currentReport.closingHeading}】`,
+          ...currentReport.closing.flatMap((paragraph) => [paragraph, ""]),
+          ...currentReport.checks.flatMap((check) => [
+            `＜${check.title}＞`,
+            `やること：${check.action}`,
+            `あとで見ること：${check.observe}`,
+            ""
+          ]),
+          currentReport.closingTail,
+          "",
+          currentReport.disclaimer
+        ].join("\n").trim();
+    }
+
+    async function copyResult() {
+      const text = buildCopyText();
+      const feedback = document.getElementById("copy-feedback");
+      try {
+        await navigator.clipboard.writeText(text);
+        feedback.textContent = "コピーしました";
+      } catch (error) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.setAttribute("readonly", "");
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+          const copied = document.execCommand("copy");
+          feedback.textContent = copied
+            ? "コピーしました"
+            : "コピーできませんでした。スクリーンショットでの保存をどうぞ";
+        } catch (fallbackError) {
+          feedback.textContent = "コピーできませんでした。スクリーンショットでの保存をどうぞ";
+        }
+        document.body.removeChild(textarea);
+      }
+      window.setTimeout(() => { feedback.textContent = ""; }, 2600);
+    }
+
+    function startQuiz() {
+      if (transitionTimerId !== null) {
+        window.clearTimeout(transitionTimerId);
+        transitionTimerId = null;
+      }
+      isTransitioning = false;
+      answers = [];
+      currentReport = null;
+      currentIndex = 0;
+      showScreen(screenQuiz);
+      renderQuestion();
+    }
+
+    document.getElementById("start-button").addEventListener("click", startQuiz);
+    document.getElementById("restart-button").addEventListener("click", startQuiz);
+    document.getElementById("retry-button").addEventListener("click", startQuiz);
+    document.getElementById("copy-button").addEventListener("click", copyResult);
+    backButton.addEventListener("click", () => {
+      if (isTransitioning) return;
+      if (currentIndex > 0) {
+        currentIndex -= 1;
+        renderQuestion();
+      }
+    });
+
+    renderIntro();
+  </script>
+</body>
+</html>
